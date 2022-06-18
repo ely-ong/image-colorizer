@@ -10,11 +10,23 @@ ul.navibar{
     justify-content: center;
 }
 
+@font-face {
+  font-family: Sweet Buttermilk;
+  src: url(Sweet\ Buttermilk\ Sans\ Free.ttf);
+}
+
 li.logo{
     flex: 10;
     display: flex;
     justify-content: center;
     margin-left: 100px;
+    font-family: Sweet Buttermilk;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 26px;
+    text-align: center;
+    color: #FFFFFF;
 }
 
 ul.nav-links{
