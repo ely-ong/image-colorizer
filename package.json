@@ -1,0 +1,24 @@
+{
+  "name": "image-explorer-colorizer",
+  "version": "1.0.0",
+  "description": "Final Project for DIGIMAP involving image colorization",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev":"nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fmclopez/Image-Explorer-Colorizer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fmclopez/Image-Explorer-Colorizer/issues"
+  },
+  "homepage": "https://github.com/fmclopez/Image-Explorer-Colorizer#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
