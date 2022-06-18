@@ -103,7 +103,7 @@ div.container {
 
     font-family: 'Montserrat', sans-serif;
     font-style: italic;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 40px;
     line-height: 49px;
     text-align: center;
@@ -113,8 +113,13 @@ div.container {
 
 div.welcome{
     display: flex;
+    padding:5%;
     flex-direction: column;
     align-items: center;
+}
+
+#marilyn{
+    max-width: 550px;
 }
 
 .image-search-box{
