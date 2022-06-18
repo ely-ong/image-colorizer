@@ -1,33 +1,26 @@
-const http = require('http')
-
+const express = require('express');
+const path = require('path')
+const app = express()
 const port = 3000
 
-const server = http.createServer((req, res) => {    
-    if (req.url === '/' || req.url === '/home') {
-        res.writeHead(200, {'content-type':'text-html'})
-        res.write('<h1>Home Page</h1>')
-        res.end()
-    }
+app.use(express.static('./public'))
 
-    else if (req.url === '/colorizer') {
-        res.writeHead(200, {'content-type':'text-html'})
-        res.write('<h1>Colorizer Page</h1>')
-        res.end()
-    }
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './homepage.html'))
+});
 
-    else if (req.url === '/about') {
-        res.writeHead(200, {'content-type':'text-html'})
-        res.write('<h1>About Us Page</h1>')
-        res.end()
-    }
- 
-    // error page
-    else {
-        res.writeHead(200, {'content-type':'text-html'})
-        res.write('<h1>Page Not Found</h1>')
-        res.end()
-    }
+app.get('/colorizer', (req, res) => {
+    res.status(200).send('Colorizer Page');
+});
+
+app.get('/about', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './about.html'))
+});
+
+app.all('*', (req, res) => {
+    res.status(404).send('<h1>Page Not Found</h1>')
 })
 
-server.listen(port)
-console.log(`Listening on port ${port}`);
+app.listen(port, () => {
+    console.log(`Listening on port ${port}...`);
+});
