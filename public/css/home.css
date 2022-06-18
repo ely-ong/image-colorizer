@@ -1,24 +1,32 @@
-.navbar {
+ul.navibar{
     background: #004E64;
-    /*width: 1920px;*/
-    width:100%;
+    width:auto;
     height: 81px;
     left: 0px;
     top: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
-a.navbar-brand{
-    position: absolute;
-    width: 355px;
-    height: 49px;
-    left: 782px;
-    top: 17px;
-    
-    background: url(text.png);
+li.logo{
+    flex: 10;
+    display: flex;
+    justify-content: center;
+    margin-left: 100px;
+}
+
+ul.nav-links{
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    /*margin-right: 100px;*/
 }
 
 html {
-    height: 100%;
+    height: auto;
 }
 
 body {
@@ -26,8 +34,102 @@ body {
     /*width: 1920px;*/
     /*height: 1080px;*/
     height: 100%;
+    width: 100%;
     margin: 0;
+    background: linear-gradient(180deg, #83CFA2 0%, rgba(85, 213, 231, 0.6) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background: linear-gradient(180deg, #83CFA2 0%, rgba(85, 213, 231, 0.6) 100%);
+    
 }
+
+#HomeTag{
+    /*position: absolute;
+    width: 63px;
+    height: 24px;
+    left: 1530px;
+    top: 22px;*/
+
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+#AboutTag{
+    /*position: absolute;
+    width: 62px;
+    height: 24px;
+    left: 1740px;
+    top: 22px; */
+
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+#AboutTag:hover {
+    transform: scale(1.1); 
+  }
+
+div.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#welcometext{
+    /*position: absolute;
+    width: 554px;
+    height: 98px;
+    left: 212px;
+    top: 236px;*/
+}
+
+.header {
+
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 49px;
+    text-align: center;
+
+    color: #004E64;
+}
+
+div.welcome{
+    display: flex;
+    padding:5%;
+    flex-direction: column;
+    align-items: center;
+}
+
+#marilyn{
+    max-width: 550px;
+}
+
+.image-search-box{
+    border-radius: 15px;
+    padding: 20px;
+    text-align: right;
+    background-color: #FFFFFF;
+}
+
+nav ul{
+    list-style-type: none;      
+}
+
