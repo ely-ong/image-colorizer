@@ -1,6 +1,7 @@
 .navbar {
     background: #004E64;
-    width: 1920px;
+    /*width: 1920px;*/
+    width:100%;
     height: 81px;
     left: 0px;
     top: 0px;
