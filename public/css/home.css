@@ -33,9 +33,9 @@ body {
     /*position: relative;*/
     /*width: 1920px;*/
     /*height: 1080px;*/
+    margin: 0;
     height: 100%;
     width: 100%;
-    margin: 0;
     background: linear-gradient(180deg, #83CFA2 0%, rgba(85, 213, 231, 0.6) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -84,10 +84,12 @@ body {
 div.container {
     height: 100%;
     width: 100%;
+    margin:0;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .header2 {
@@ -115,10 +117,12 @@ div.container {
 
 
 div.welcome{
+    flex:3;
     display: flex;
     padding:10%;
     flex-direction: column;
     align-items: center;
+    margin-left: 20px;
 }
 
 #marilyn{
@@ -126,8 +130,12 @@ div.welcome{
 }
 
 .image-search-box{
+    flex:5;
+    height:100%;
+    width:500px;
     border-radius: 15px;
-    padding: 20px;
+    float:right;
+    padding: 15px;
     text-align: right;
     background-color: #FFFFFF;
 }
@@ -136,9 +144,15 @@ nav ul{
     list-style-type: none;      
 }
 
+#image-url{
+  width:90%;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
 .file-upload {
     background-color: #ffffff;
-    width: 600px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
   }
@@ -177,9 +191,6 @@ nav ul{
   }
   
   .file-upload-input {
-    position: absolute;
-    margin: 0;
-    padding: 0;
     width: 100%;
     height: 100%;
     outline: none;
