@@ -6,7 +6,7 @@ const port = 3000
 app.use(express.static('./public'))
 
 app.get('/', (req, res) => {
-    res.status(200).send('Home Page')
+    res.sendFile(path.resolve(__dirname, './homepage.html'))
 });
 
 app.get('/colorizer', (req, res) => {
