@@ -1,3 +1,9 @@
+body {
+    height: 100vh;
+    margin: 0; 
+    padding: 0;
+}
+
 .about-section{
     height: 100%;
     width: 70%;
@@ -47,7 +53,6 @@
 #random{ 
     width: 90%;
     margin: auto;
-
 }
 
 
