@@ -97,3 +97,15 @@ div.developers {
       height: 6em;
     }
 }
+
+
+@media (max-width: 1225px) {
+    .avatar {
+      width: 6em;
+      height: 6em;
+    }
+
+    #devs{
+        text-align: center;
+    }
+}
