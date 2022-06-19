@@ -5,12 +5,15 @@ body {
 }
 
 .about-section{
-    height: 100vh;
+    min-height: 100vh;
     width: 70%;
     margin:auto;
     position:relative;
-    padding: 4em 2em 0;
     background: rgba(255, 255, 255, 0.8);
+}
+
+.about-project{
+    padding: 4em 2em 0;
 }
 
 .about-section p{
@@ -34,6 +37,12 @@ body {
     margin-top: 0.7rem;
 }
 
+div.ref {
+    width: 80%;
+    margin-left: auto; 
+    margin-right: 0;
+}
+
 .about-section a{
     font-family: 'Montserrat';
     font-style: italic;
@@ -43,14 +52,14 @@ body {
     color: #004E64;
     display:block;
     text-align:right;
-    margin-left:12em;
+    /* margin-left:12em; */
     margin-top: 2em;
     margin-bottom: 3em;
     /* overflow: hidden; */
 }
 
 div.developers {
-    padding-top: 2em;
+    padding: 2em 2em 0;
 }
 
 #devs{ 
