@@ -61,15 +61,37 @@ div.preview-box{
 }
 
 .url-box{
+    width: 90%;
     position: relative;
 }
 
-.url-box .input-group-prepend{
+.url-submit{
+    background-color: #EDEDED;
+    border: none;
+    background-repeat: no-repeat;
+    margin: auto;
     position: absolute;
-    right: 4px;
-    top: 4px;
-    bottom: 4px;
-    z-index: 9;
+    top: 2px;
+    right: 10px;
+    bottom: 5px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.image-url-submit{
+    max-height: 25px;
+    max-width: 25;
+}
+
+.url-submit:active{
+    outline: none;
+    border: none;
+    opacity: 0.8;
+}
+
+.url-submit:focus{
+    outline: none;
+    border: none;
 }
 
 #image-url{
@@ -81,16 +103,6 @@ div.preview-box{
   background: #EDEDED;
   border: 1px solid #EDEDED;
   border-radius: 10px;
-}
-
-#image-url-btn{
-    background: url('public/imgs/right\ arrow.png');
-    border: none;
-    background-repeat: no-repeat;
-    max-height: 40px;
-    max-width: 40px;
-    margin: auto;
-    padding: 10px 10px 10px 0px;
 }
 
 .file-upload {
@@ -113,13 +125,8 @@ div.preview-box{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: all .2s ease;
     outline: none;
-    /* text-transform: uppercase; */
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-  }
-
-  #url-btn {
-    border: none;
   }
   
   .file-upload-btn:hover {
@@ -205,6 +212,7 @@ li > button.preview-tab:not(.active):hover {
     color: #FFFFFF;
     font-weight: 700;
     cursor: pointer;
+    transition: all .2s ease;
 }
 
 .image-btns-box{
@@ -267,19 +275,17 @@ li > button.preview-tab:not(.active):hover {
   .image-upload-wrap {
     margin-top: 10px;
     margin-bottom: 20px;
-    border: 4px dashed #004E64;
     position: relative;
-  }
-  
-  .image-dropping,
-  .image-upload-wrap:hover {
-    background-color: #83CFA2;
-    border: 4px dashed #ffffff;
   }
   
   .image-title-wrap {
     padding: 0 15px 15px 15px;
     color: #222;
+  }
+
+  .no-image-icon {
+    max-height: 100px;
+    max-width: 100px;
   }
   
   .drag-text {
@@ -290,12 +296,19 @@ li > button.preview-tab:not(.active):hover {
     font-weight: 200;
     /*text-transform: uppercase;*/
     color: #004E64;
-    padding: 60px 0;
+    padding: 30px 0;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 39px;
+    text-align: center;
+    color: #727272;
   }
   
   .file-upload-image {
-    max-height: 200px;
-    max-width: 200px;
+    max-height: 300px;
+    max-width: 300px;
     margin: auto;
     padding: 20px;
   }
@@ -307,29 +320,3 @@ li > button.preview-tab:not(.active):hover {
     padding: 10px 10px 10px 0px;
   }
   
-  .remove-image {
-    width: 200px;
-    margin: 0;
-    color: #fff;
-    background: #cd4535;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    border-bottom: 4px solid #b02818;
-    transition: all .2s ease;
-    outline: none;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-  
-  .remove-image:hover {
-    background: #c13b2a;
-    color: #ffffff;
-    transition: all .2s ease;
-    cursor: pointer;
-  }
-  
-  .remove-image:active {
-    border: 0;
-    transition: all .2s ease;
-  }

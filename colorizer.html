@@ -21,6 +21,7 @@
           $('.file-upload-btn').hide();
           $('.file-upload-image').attr('src', e.target.result);
           $('.file-upload-content').show();
+          $('#origTag').addClass("active")
 
           // $('.image-title').html(input.files[0].name);
           $('.image-name').html(input.files[0].name);
@@ -40,6 +41,7 @@
       $('.image-upload-wrap').show();
       $('.file-upload-btn').show();
       $('.image-name').hide();
+      $('#origTag').removeClass("active")
     }
     $('.image-upload-wrap').bind('dragover', function () {
       $('.image-upload-wrap').addClass('image-dropping');
@@ -55,7 +57,6 @@
 <nav>
   <ul class = "navibar">
     <li class = "logo">Image Explorers Colorizer</li>
-    <!-- <img id = "logo" src="public/imgs/text.png"> -->
     <ul class="nav-links">
       <li><a class="nav-link active" id="HomeTag" href="#">Home </a></li>
       <li><a class="nav-link" id="AboutTag" href="/about">About</a></li>
@@ -66,7 +67,13 @@
 <body>
 <div class = "container">
     <div class = "top-box">
-        <input type="url" id="image-url" name ="image url" placeholder="Paste image URL"><br>
+      <div class="url-box">
+        <input type="url" id="image-url" name ="image url" placeholder="Paste image URL">
+        <button class="url-submit" type="submit">
+          <img class="image-url-submit" src="public/imgs/rightarrow.png"/>
+        </button>
+      </div>
+      <br>
         <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">
           <img class="file-select-image" src="public/imgs/file.png" alt="your image" />
           Select File
@@ -95,7 +102,8 @@
         <div class="image-upload-wrap">
           <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*"/>
           <div class="drag-text">
-            <h3>Drag and drop an image file...</h3>
+            <img class="no-image-icon" src="public/imgs/noimage.png"/>
+            <h3>No image selected</h3>
           </div>
         </div>
         <div class="file-upload-content">
