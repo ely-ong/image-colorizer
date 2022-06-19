@@ -32,7 +32,7 @@ app.get('/about', (req, res) => {
 });
 
 app.all('*', (req, res) => {
-    res.status(404).send('<h1>Page Not Found</h1>')
+    res.sendFile(path.resolve(__dirname, './errorpage.html'))
 })
 // -----------------------------------
 
