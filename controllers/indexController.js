@@ -17,7 +17,7 @@ exports.getColorizer = (req, res) => {
 exports.getAbout = (req, res) => {
     res.render('about',  { 
         title: 'About Us - Image Explorer Colorizer', 
-        layout: 'about', 
+        layout: 'about_layout', 
         css: ['main.css', 'about.css']
     });
 }
