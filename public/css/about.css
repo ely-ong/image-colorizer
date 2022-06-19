@@ -49,22 +49,25 @@ body {
     /* overflow: hidden; */
 }
 
+div.developers {
+    padding-top: 2em;
+}
 
-#random{ 
+#devs{ 
     width: 90%;
-    margin: auto;
+    /* margin: auto; */
 }
 
 
-#random .image-wrap{
+#devs .image-wrap{
     display:inline-block;
-    width:150px;
+    width:10em;
     text-align: center;
     margin-left: 1em;
     margin-right: 1em;
 }
 
-#random p{
+#devs p{
     margin-top: 1em;
     font-weight: bold;
     font-size: 1rem;
