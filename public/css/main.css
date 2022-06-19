@@ -1,0 +1,75 @@
+@font-face {
+font-family: Sweet Buttermilk;
+src: url(Sweet\ Buttermilk\ Sans\ Free.ttf);
+}
+
+html {
+    height: auto;
+}
+
+body {
+    /*position: relative;*/
+    /*width: 1920px;*/
+    /*height: 1080px;*/
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, #83CFA2 0%, rgba(85, 213, 231, 0.6) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+
+ul.navibar{
+    background: #004E64;
+    width:auto;
+    height: 81px;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+li.logo{
+    flex: 10;
+    display: flex;
+    justify-content: center;
+    margin-left: 100px;
+    font-family: Sweet Buttermilk;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 26px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+ul.nav-links{
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    list-style-type: none;    
+    /*margin-right: 100px;*/
+}
+
+li > a.nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    /* line-height: 26px;    */
+    text-align: center;
+    color: #FFFFFF;
+}
+
+li > a.nav-link.active {
+    font-weight: 600;
+    font-size: 22px;
+}
+
+li > a.nav-link:not(.active) {
+    transform: scale(1.1); 
+}

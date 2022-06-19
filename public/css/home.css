@@ -1,98 +1,3 @@
-ul.navibar{
-    background: #004E64;
-    width:auto;
-    height: 81px;
-    left: 0px;
-    top: 0px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-@font-face {
-  font-family: Sweet Buttermilk;
-  src: url(Sweet\ Buttermilk\ Sans\ Free.ttf);
-}
-
-li.logo{
-    flex: 10;
-    display: flex;
-    justify-content: center;
-    margin-left: 100px;
-    font-family: Sweet Buttermilk;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 42px;
-    line-height: 26px;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-ul.nav-links{
-    flex: 2;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    /*margin-right: 100px;*/
-}
-
-html {
-    height: auto;
-}
-
-body {
-    /*position: relative;*/
-    /*width: 1920px;*/
-    /*height: 1080px;*/
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(180deg, #83CFA2 0%, rgba(85, 213, 231, 0.6) 100%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    
-}
-
-#HomeTag{
-    /*position: absolute;
-    width: 63px;
-    height: 24px;
-    left: 1530px;
-    top: 22px;*/
-
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 26px;
-    text-align: center;
-
-    color: #FFFFFF;
-
-}
-
-#AboutTag{
-    /*position: absolute;
-    width: 62px;
-    height: 24px;
-    left: 1740px;
-    top: 22px; */
-
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 28px;
-    line-height: 26px;
-    text-align: center;
-
-    color: #FFFFFF;
-}
-
-#AboutTag:hover {
-    transform: scale(1.1); 
-  }
-
 div.container {
     height: 100%;
     width: 100%;
@@ -127,7 +32,6 @@ div.container {
     color: #004E64;
 }
 
-
 div.welcome{
     flex:3;
     display: flex;
@@ -150,10 +54,6 @@ div.welcome{
     padding: 15px;
     text-align: right;
     background-color: #FFFFFF;
-}
-
-nav ul{
-    list-style-type: none;      
 }
 
 #image-url{
