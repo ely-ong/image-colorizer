@@ -155,7 +155,7 @@ div.preview-box{
 
   .notif-box-fail{
     display: none;
-    background: #D86D72;
+    background: #c9666b;
     border: 3px solid #E3E3E3;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;

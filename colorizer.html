@@ -41,7 +41,9 @@
       $('.image-upload-wrap').show();
       $('.file-upload-btn').show();
       $('.image-name').hide();
-      $('#origTag').removeClass("active")
+      $('#origTag').removeClass("active");
+      $("#image-url").val('');
+
     }
     $('.image-upload-wrap').bind('dragover', function () {
       $('.image-upload-wrap').addClass('image-dropping');
@@ -49,6 +51,36 @@
       $('.image-upload-wrap').bind('dragleave', function () {
         $('.image-upload-wrap').removeClass('image-dropping');
     });
+
+    function uploadURL() {
+  
+      if ($("#image-url").val()) {
+        var filename = $("#image-url").val().match(/.*\/(.*)$/)[1];
+
+        var extensions = ['jpg', 'png','gif'];
+        var inputExt = filename.substr(filename.lastIndexOf('.') + 1);
+
+        if ($.inArray(inputExt, extensions) == -1){
+           $('.notif-box-fail').text("Entered URL is invalid. Please enter an image URL.");
+           $('.notif-box-fail').show();
+           $("#image-url").val('');
+           $('.image-name').hide();
+        }
+
+        else{
+          $('.notif-box-fail').text("An error occurred in image colorization. Try another image.");
+          $('.notif-box-fail').hide();
+          $(".file-upload-image").attr("src", $("#image-url").val());
+          $('.image-upload-wrap').hide();
+          $('.file-upload-btn').hide();
+          $('.file-upload-content').show();
+          $('#origTag').addClass("active")
+          $('.image-name').text(filename);
+          $('.image-name').show();
+        }
+        
+      }
+    };
 </script>
 
 <title>Image Explorers Colorizer</title>
@@ -69,7 +101,7 @@
     <div class = "top-box">
       <div class="url-box">
         <input type="url" id="image-url" name ="image url" placeholder="Paste image URL">
-        <button class="url-submit" type="submit">
+        <button class="url-submit" type="submit" onclick="uploadURL()">
           <img class="image-url-submit" src="/imgs/rightarrow.png"/>
         </button>
       </div>
