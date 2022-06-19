@@ -1,7 +1,7 @@
 exports.getHompage = (req, res) => {
     res.render('homepage',  { 
         title: 'Home - Image Explorer Colorizer', 
-        layout: 'home', 
+        layout: 'home_layout', 
         css: ['main.css', 'home.css']
     });
 }
@@ -9,7 +9,7 @@ exports.getHompage = (req, res) => {
 exports.getColorizer = (req, res) => {
     res.render('colorizer',  { 
         title: 'Colorizer - Image Explorer Colorizer', 
-        layout: 'colorizer', 
+        layout: 'colorizer_layout', 
         css: ['main.css', 'colorizer.css']
     });
 }
@@ -25,7 +25,7 @@ exports.getAbout = (req, res) => {
 exports.getError = (req, res) => {
     res.render('error',  { 
         title: 'Error - Image Explorer Colorizer', 
-        layout: 'error', 
+        layout: 'error_layout', 
         css: ['main.css', 'error.css']
     });
 }
