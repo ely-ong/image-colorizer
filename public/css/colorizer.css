@@ -230,9 +230,13 @@ li > button.preview-tab:not(.active):hover {
 .image-btns:hover{
     cursor: pointer;
     border: 3px solid transparent;
-    background-color: #83CFA2;
-    color: #FFFFFF;
+    background-color: #86C1C8;
+    color: #EDEDED;
     transition: all .2s ease;
+}
+
+.image-name{
+    color: #004E64;
 }
 
 .clear-btn{
