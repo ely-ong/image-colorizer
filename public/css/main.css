@@ -78,3 +78,21 @@ li > a.nav-link:not(.active) {
     transform: scale(1.1); 
     margin-top: 0.2em;
 }
+
+@media (max-width: 800px) {
+    li.logo{
+        font-size:2.4rem;
+    }
+
+    li > a.nav-link{
+        font-size:1rem;
+    }
+
+    li > a.nav-link.active{
+        font-size:1.3rem;
+    } 
+
+    li > a.nav-link:not(.active){
+        margin-top:0.3em;
+    }
+}
