@@ -40,9 +40,13 @@ li.logo{
     font-family: Sweet Buttermilk;
     font-style: normal;
     font-weight: 500;
-    font-size: 42px;
+    font-size: 2.8rem;
     line-height: 26px;
     text-align: center;
+}
+
+a.text-logo{
+    text-decoration: none;
     color: #FFFFFF;
 }
 
@@ -72,4 +76,5 @@ li > a.nav-link.active {
 
 li > a.nav-link:not(.active) {
     transform: scale(1.1); 
+    margin-top: 0.2em;
 }
