@@ -10,7 +10,8 @@ exports.getColorizer = (req, res) => {
     res.render('colorizer',  { 
         title: 'Colorizer - Image Explorer Colorizer', 
         layout: 'colorizer_layout', 
-        css: ['main.css', 'colorizer.css']
+        css: ['main.css', 'colorizer.css'],
+        js:['colorizer.js']
     });
 }
 

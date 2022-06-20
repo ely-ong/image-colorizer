@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/colorizer', (req, res) => {
-    res.status(200).send('Colorizer Page');
+    res.sendFile(path.resolve(__dirname, './colorizer.html'));
 });
 
 app.get('/about', (req, res) => {
