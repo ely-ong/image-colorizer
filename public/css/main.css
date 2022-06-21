@@ -96,3 +96,18 @@ li > a.nav-link:not(.active) {
         margin-top:0.3em;
     }
 }
+
+@media (max-width: 710px) {
+    li.logo{
+        font-size:2rem;
+    }
+
+    li > a.nav-link{
+        font-size:0.8rem;
+    }
+
+    li > a.nav-link.active{
+        font-size:1rem;
+    } 
+
+}
