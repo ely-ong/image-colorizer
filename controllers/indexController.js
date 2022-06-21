@@ -2,6 +2,7 @@ exports.getHompage = (req, res) => {
     res.render('homepage',  { 
         title: 'Home - Image Explorer Colorizer', 
         layout: 'home_layout', 
+        loc: 'Home',
         css: ['main.css', 'home.css']
     });
 }
@@ -19,6 +20,7 @@ exports.getAbout = (req, res) => {
     res.render('about',  { 
         title: 'About Us - Image Explorer Colorizer', 
         layout: 'about_layout', 
+        loc: 'About',
         css: ['main.css', 'about.css']
     });
 }

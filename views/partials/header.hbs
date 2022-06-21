@@ -2,8 +2,8 @@
   <ul class = "navibar" style="margin-bottom: 0px;">
     <li class = "logo" ><a href="/" class = "text-logo"> Image Explorers Colorizer</a></li>
     <ul class="nav-links">
-      <li><a class="nav-link" id="HomeTag" href="/">Home </a></li>
-      <li><a class="nav-link active" id="AboutTag" href="/about">About</a></li>
+      <li><a class="nav-link {{#if_equal loc 'Home'}} active {{/if_equal}}" id="HomeTag" href="/">Home </a></li>
+      <li><a class="nav-link {{#if_equal loc 'About'}} active{{/if_equal}}" id="AboutTag" href="/about">About</a></li>
     </ul>
   </ul>
 </nav>
