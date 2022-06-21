@@ -7,33 +7,33 @@ const port = 3000
 
 const indexRouter = require("./routes/indexRoute");
 
-// app.engine('hbs', exphbs.engine({
-//     extname: 'hbs',
-// }));
+app.engine('hbs', exphbs.engine({
+    extname: 'hbs',
+}));
 
-// app.set('view engine', 'hbs');
+app.set('view engine', 'hbs');
 
 app.use(express.static('./public'))
 
-// app.use('/', indexRouter);
+app.use('/', indexRouter);
 
 
-// ------- TO BE REMOVED -------
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './homepage.html'))
-});
+// // ------- TO BE REMOVED -------
+// app.get('/', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, './homepage.html'))
+// });
 
-app.get('/colorizer', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './colorizer.html'));
-});
+// app.get('/colorizer', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, './colorizer.html'));
+// });
 
-app.get('/about', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './about.html'))
-});
+// app.get('/about', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, './about.html'))
+// });
 
-app.all('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './errorpage.html'))
-})
+// app.all('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, './errorpage.html'))
+// })
 // -----------------------------------
 
 app.listen(port, () => {
