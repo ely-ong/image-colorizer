@@ -36,7 +36,7 @@ li.logo{
     flex: 10;
     display: flex;
     justify-content: center;
-    margin-left: 100px;
+    /* margin-left: 100px; */
     font-family: Sweet Buttermilk;
     font-style: normal;
     font-weight: 500;
@@ -53,9 +53,10 @@ a.text-logo{
 ul.nav-links{
     flex: 2;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 10px;
-    list-style-type: none;    
+    list-style-type: none; 
+    z-index: 2;   
     /*margin-right: 100px;*/
 }
 
