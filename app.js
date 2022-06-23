@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const {spawn} = require('child_process')
-
+const bodyparser = require('body-parser');
 const hbs = require('handlebars');
 const path = require('path')
 const app = express()
@@ -26,6 +26,10 @@ app.engine('hbs', exphbs.engine({
 app.set('view engine', 'hbs');
 
 app.use(express.static('./public'))
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({
+    extended: true
+}));
 
 app.use('/', indexRouter);
 

@@ -22,6 +22,8 @@ exports.colorizeImage = (req, res) => {
     const { spawn } = require('child_process');
     const python = spawn('python3', ['colorization_master/sample.py', 'Sophia']);
 
+    // console.log("imageURL", req.body.imageURL)
+
     python.stdout.on('data', (data) => {
     console.log('pattern: ', data.toString());
     });

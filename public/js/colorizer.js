@@ -1,10 +1,11 @@
 function readURL(input) {
 
     if (input.files && input.files[0]) {
-
       var reader = new FileReader();
+      var imgUploaded;
 
       reader.onload = function(e) {
+        imgUploaded = e.target.result;
         $('.image-upload-wrap').hide();
         $('.file-upload-btn').hide();
         $('.file-upload-image').attr('src', e.target.result);
@@ -14,13 +15,23 @@ function readURL(input) {
         // $('.image-title').html(input.files[0].name);
         $('.image-name').html(input.files[0].name);
         $('.image-name').show();
+        
+        console.log(imgUploaded)
+
+        $.post('/colorizeimage', {imageURL: imgUploaded}, function(data, status) {
+
+        })
+        
       };
 
       reader.readAsDataURL(input.files[0]);
+      
 
     } else {
       removeUpload();
     }
+    
+    
   }
 
   function removeUpload() {
