@@ -20,7 +20,7 @@ exports.getColorizer = (req, res) => {
 
 exports.colorizeImage = (req, res) => {
     const { spawn } = require('child_process');
-    const python = spawn('python3', ['colorization_master/demo_release.py']);
+    const python = spawn('python3', ['colorization_master/sample.py', 'Sophia']);
 
     python.stdout.on('data', (data) => {
     console.log('pattern: ', data.toString());
