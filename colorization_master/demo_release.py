@@ -57,6 +57,4 @@
 
 import sys
 
-print("Hello World")
-
-sys.stdout.flush()
+sys.stdout.write("Hello")

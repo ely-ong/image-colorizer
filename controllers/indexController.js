@@ -1,4 +1,4 @@
-const {spawn} = require('child_process')
+var spawn = require("child_process").spawn;
 
 exports.getHompage = (req, res) => {
     res.render('homepage',  { 
@@ -19,26 +19,23 @@ exports.getColorizer = (req, res) => {
 }
 
 exports.colorizeImage = (req, res) => {
-    const python = spawn('python', ['demo_release.py']);
-    var dataToSend;
+    const { spawn } = require('child_process');
+    const python = spawn('python3', ['colorization_master/demo_release.py']);
 
-    python.stdout.on('data', function(data) {
-        dataToSend = data.toString();
+    python.stdout.on('data', (data) => {
+    console.log('pattern: ', data.toString());
     });
 
-    python.stderr.on('data', function(data) {
-        console.error(`stderr: ${data}`);
+    python.stderr.on('data', (data) => {
+    console.error('err: ', data.toString());
     });
 
-    python.on('exit', (code) => {
-        console.log(`child process exited with code ${code}, ${dataToSend}`)
-    })
+    python.on('error', (error) => {
+    console.error('error: ', error.message);
+    });
 
-    res.render('colorizer',  { 
-        title: 'Colorizer - Image Explorer Colorizer', 
-        layout: 'colorizer_layout', 
-        css: ['main.css', 'colorizer.css'],
-        js:['colorizer.js']
+    python.on('close', (code) => {
+    console.log('child process exited with code ', code);
     });
 }
 
