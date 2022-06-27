@@ -1,0 +1,49 @@
+<div class = "thisdiv">
+    <div class = "welcome">
+      <h2 class="header2" id="welcometext">Image Colorizer Tool</h2>
+      <!--img id= "marilyn" src="/imgs/marilyn.png"-->
+      <img id= "marilyn" src="/imgs/marilyn.png">
+      <h3 class="header3" id="welcometext">Upload an image to colorize it!</h3>
+    </div>
+    <div class = "rightside">
+      <div class="image-search-box">
+        <div class="paste-url">
+          <input type="url" id="image-url" name ="image url" placeholder="Paste image URL">
+          <a class="process-image" href="/colorizer" onclick="return doClick();"> <img id="next" src="/imgs/rightarrow.png" width="30" height="30"> </a>
+        </div>
+          <!--form action="images.google.com">
+            <input id=search type="text" name="q"> <br>
+            <input type="submit" value="Google Images">
+        </form-->
+      <div class="file-upload">
+        <div class="image-upload-wrap">
+          <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*"/>
+          <div class="drag-text">
+            <h3>Drag and drop an image file...</h3>
+          </div>
+        </div>
+        <div class="file-upload-content">
+          <img class="file-upload-image" src="#" alt="your image" />
+          <div class="image-title-wrap">
+            <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+          </div>
+        </div>
+        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Select File</button>
+      </div>
+      </div>
+    
+    <div class = "sample-list">
+        <div class = "sample-box">
+          <h4 id = "tryit">No image yet? Try one of these:</h4>
+          <div class = "sample-photos-container">
+            <a class="click-image" href="/colorizer" onclick="return doClick();">  <img class= "sample-photos" src="/imgs/sample_imgs/barn.jpg" width="80" height="80"> </a>
+            <a class="click-image" href="/colorizer" onclick="return doClick();">  <img class= "sample-photos" src="/imgs/sample_imgs/bridge.jpg" width="80" height="80"> </a>
+            <a class="click-image" href="/colorizer" onclick="return doClick();">  <img class= "sample-photos" src="/imgs/sample_imgs/eiffel.jpg" width="80" height="80"> </a>
+            <a class="click-image" href="/colorizer" onclick="return doClick();">  <img class= "sample-photos" src="/imgs/sample_imgs/woman.jpg" width="80" height="80"> </a>
+            <a class="click-image" href="/colorizer" onclick="return doClick();">  <img class= "sample-photos" src="/imgs/sample_imgs/henry.jpg" width="80" height="80"> </a>
+            <a class="click-image" href="/colorizer" onclick="return doClick();">  <img class= "sample-photos" src="/imgs/sample_imgs/puppy.jpg" width="80" height="80"> </a>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

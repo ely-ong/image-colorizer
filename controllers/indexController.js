@@ -2,12 +2,13 @@ var spawn = require("child_process").spawn;
 var  { Blob } = require("buffer")
 
 
-exports.getHompage = (req, res) => {
-    res.render('homepage',  { 
+exports.getHomepage = (req, res) => {
+    res.render('home',  { 
         title: 'Home - Image Explorer Colorizer', 
         layout: 'home_layout', 
         loc: 'Home',
-        css: ['main.css', 'home.css']
+        css: ['main.css', 'home.css'],
+        js:['home.js']
     });
 }
 
