@@ -29,7 +29,7 @@ app.use(express.static('./public'))
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({
-    extended: true
+    extended: true,
 }));
 
 app.use('/', indexRouter);

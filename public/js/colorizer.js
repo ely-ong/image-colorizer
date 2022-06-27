@@ -1,6 +1,20 @@
-function readURL(input) {
+function downloadImg(){
+  var img = $('.file-upload-image').attr('src');
+  var fileName = $(".image-name").text();
+  var str1 = 'colorized-';
+  var finalFileName = str1.concat(fileName.toString());
+  var el = document.createElement("a");
+  
+  el.setAttribute("href", img);
+  el.setAttribute("download", finalFileName);
+  $(document.body).append(el);
+  el.click();
+  $(document.body).append(el);
+}
 
+function readURL(input) {
     if (input.files && input.files[0]) {
+      
       var reader = new FileReader();
       var imgUploaded;
 
@@ -16,7 +30,8 @@ function readURL(input) {
         // $('.image-title').html(input.files[0].name);
         $('.image-name').html(input.files[0].name);
         $('.image-name').show();
-        
+
+        // download(imgUploaded, input.files[0].name)
         console.log(imgUploaded)
         
         $.post('/colorizeimage', {imageURL: reader.result}, function(data, status) {
@@ -51,7 +66,7 @@ function readURL(input) {
   });
 
   function uploadURL() {
-
+    console.log("huh")
     if ($("#image-url").val()) {
       var filename = $("#image-url").val().match(/.*\/(.*)$/)[1];
 
