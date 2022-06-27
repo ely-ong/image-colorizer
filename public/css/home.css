@@ -1,12 +1,12 @@
-div.container {
-    height: 100%;
+div.thisdiv{
+    height: 600px;
     width: 100%;
-    margin:0;
+    margin-top: 50px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .header2 {
@@ -33,39 +33,59 @@ div.container {
 }
 
 div.welcome{
-    flex:3;
+    width:auto;
+    margin-top: 20px;
     display: flex;
-    padding:10%;
+    padding:6%;
     flex-direction: column;
     align-items: center;
-    margin-left: 20px;
 }
 
 #marilyn{
-    max-width: 600px;
+    max-width: 550px;
+}
+
+.rightside{
+  height:100%;
+  width:550px;
+  margin-right:100px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
 }
 
 .image-search-box{
-    flex:5;
-    height:100%;
-    width:500px;
+    height:auto;
+    width:100%;
     border-radius: 15px;
-    float:right;
-    padding: 15px;
+    padding: 5%;
     text-align: right;
     background-color: #FFFFFF;
+    margin:10px;
+}
+
+.paste-url{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+#next{
+  margin-top: 5px;
 }
 
 #image-url{
   width:90%;
-  margin-top: 10px;
+  border-radius: 10px;
+  margin-top: 5px;
   margin-right: 15px;
+  margin-left: 10px;
 }
 
 .file-upload {
     background-color: #ffffff;
     width: 100%;
-    margin: 0 auto;
+    margin: 0;
     padding: 20px;
   }
   
@@ -140,9 +160,9 @@ div.welcome{
   }
   
   .file-upload-image {
-    max-height: 200px;
-    max-width: 200px;
-    margin: auto;
+    max-height: 500px;
+    max-width: 500px;
+    margin: 0;
     padding: 20px;
   }
   
@@ -171,4 +191,48 @@ div.welcome{
   .remove-image:active {
     border: 0;
     transition: all .2s ease;
+  }
+
+  .sample-list{
+    height:auto;
+    width:100%;
+    border-radius: 15px;
+    padding: 1%;
+    background-color: #FFFFFF;
+    margin: 10px;
+  }
+
+  .sample-box{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  .sample-photos-container{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.5%;
+  }
+
+  .sample-photos{
+    max-width: 80px;
+    max-height: 80px;
+    border: 2px solid #004E64;
+    margin: 2px;
+  }
+
+  #tryit{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #004E64;
+  }
+
+  a.click-image:hover{
+    opacity: 0.6
   }
