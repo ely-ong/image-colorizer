@@ -2,12 +2,13 @@ var spawn = require("child_process").spawn;
 var  { Blob } = require("buffer")
 
 
-exports.getHompage = (req, res) => {
-    res.render('homepage',  { 
+exports.getHomepage = (req, res) => {
+    res.render('home',  { 
         title: 'Home - Image Explorer Colorizer', 
         layout: 'home_layout', 
         loc: 'Home',
-        css: ['main.css', 'home.css']
+        css: ['main.css', 'home.css'],
+        js:['home.js']
     });
 }
 
@@ -22,8 +23,6 @@ exports.getColorizer = (req, res) => {
  
 exports.colorizeImage = (req, res) => {
     console.log('here1')
-
-    
 
     // const python = spawn('python', ['colorization_master/demo_release.py', `-i ${req.body.imageURL}]);
     const python = spawn('python', ['colorization_master/demo_release.py']);

@@ -17,7 +17,7 @@ function readURL(input) {
       
       var reader = new FileReader();
       var imgUploaded;
-
+      
       reader.onload = function(e) {
         imgUploaded = e.target.result;
         $("#imageURL").attr("src", reader.result);
@@ -33,19 +33,16 @@ function readURL(input) {
 
         // download(imgUploaded, input.files[0].name)
         console.log(imgUploaded)
+        imgUploaded = $("#file-upload-input").val()
         
-        $.post('/colorizeimage', {imageURL: reader.result}, function(data, status) {
-        })
+        $("#upload-btn-hidden").trigger('click');
       };
 
       reader.readAsDataURL(input.files[0]);
-      
 
     } else {
       removeUpload();
     }
-    
-    
   }
 
   function removeUpload() {
