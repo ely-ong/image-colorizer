@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/fmclopez/Image-Explorer-Colorizer#readme",
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "got": ">=11.8.5"
   },
   "dependencies": {
+    "got": ">=11.8.5",
     "buffer": "^6.0.3",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
