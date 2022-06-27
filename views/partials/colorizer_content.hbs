@@ -9,6 +9,7 @@
         <br>
           <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">
             <img class="file-select-image" src="/imgs/file.png" alt="your image" />
+            <input type="file" id="imageURL" name="imageURL" style="display:none">
             <span class="upload-label">Select File</span>
           </button>
       </div>
@@ -43,11 +44,12 @@
         </div>
         </div>
       </div>
+      <div class="image-name">
+        <span>name.png</span>
+      </div>
       <div class="image-btns-box">
         <button class="image-btns clear-btn" onclick="removeUpload()">Clear</button>
-        <div class="image-name">
-          <span>name.png</span>
-        </div>
+        
         <button class="image-btns dl-btn">Download</button>
       </div>
   </div>

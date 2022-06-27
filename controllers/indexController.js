@@ -1,4 +1,6 @@
 var spawn = require("child_process").spawn;
+var  { Blob } = require("buffer")
+
 
 exports.getHompage = (req, res) => {
     res.render('homepage',  { 
@@ -17,12 +19,14 @@ exports.getColorizer = (req, res) => {
         js:['colorizer.js']
     });
 }
-
+ 
 exports.colorizeImage = (req, res) => {
-    const { spawn } = require('child_process');
-    const python = spawn('python3', ['colorization_master/sample.py', 'Sophia']);
+    console.log('here1')
 
-    // console.log("imageURL", req.body.imageURL)
+    
+
+    // const python = spawn('python', ['colorization_master/demo_release.py', `-i ${req.body.imageURL}]);
+    const python = spawn('python', ['colorization_master/demo_release.py']);
 
     python.stdout.on('data', (data) => {
     console.log('pattern: ', data.toString());

@@ -6,6 +6,7 @@ function readURL(input) {
 
       reader.onload = function(e) {
         imgUploaded = e.target.result;
+        $("#imageURL").attr("src", reader.result);
         $('.image-upload-wrap').hide();
         $('.file-upload-btn').hide();
         $('.file-upload-image').attr('src', e.target.result);
@@ -17,11 +18,9 @@ function readURL(input) {
         $('.image-name').show();
         
         console.log(imgUploaded)
-
-        $.post('/colorizeimage', {imageURL: imgUploaded}, function(data, status) {
-
-        })
         
+        $.post('/colorizeimage', {imageURL: reader.result}, function(data, status) {
+        })
       };
 
       reader.readAsDataURL(input.files[0]);
