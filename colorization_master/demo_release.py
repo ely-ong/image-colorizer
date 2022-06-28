@@ -19,6 +19,7 @@ if(opt.use_gpu):
 
 # default size to process images is 256x256
 # grab L channel in both original ("orig") and resized ("rs") resolutions
+opt.img_path = opt.img_path.strip()
 img = load_img(opt.img_path)
 (tens_l_orig, tens_l_rs) = preprocess_img(img, HW=(256,256))
 if(opt.use_gpu):

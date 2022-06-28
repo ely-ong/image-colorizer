@@ -31,19 +31,34 @@ function readURL(input) {
         $('.image-name').html(input.files[0].name);
         $('.image-name').show();
 
-        // download(imgUploaded, input.files[0].name)
-        console.log(imgUploaded)
-        imgUploaded = $("#file-upload-input").val()
-        
-        $("#upload-btn-hidden").trigger('click');
+        // download(imgUploaded, input.files[0].name)  
+        $("#upload-btn-hidden").trigger('click'); 
       };
 
       reader.readAsDataURL(input.files[0]);
 
-    } else {
+    } else { 
       removeUpload();
     }
   }
+
+  $('#upload-btn-hidden').click(function(e){
+    e.preventDefault();
+
+    var form = $('#uploadImage')[0]; 
+    var formData = new FormData(form);     
+    formData.append('imageURL', $("#imageURL")[0].files[0].name);
+    $.ajax({
+      type: "POST",
+      url: "/colorizeImage",
+      data: formData,
+      //use contentType, processData for sure.
+      contentType: false,
+      processData: false
+    }).done(function (data) {
+      console.log(data);
+    });
+  });
 
   function removeUpload() {
     $('.file-upload-input').replaceWith($('.file-upload-input').clone());

@@ -23,9 +23,9 @@ exports.getColorizer = (req, res) => {
  
 exports.colorizeImage = (req, res) => {
     console.log('here1')
-
-    // const python = spawn('python', ['colorization_master/demo_release.py', `-i ${req.body.imageURL}]);
-    const python = spawn('python', ['colorization_master/demo_release.py']);
+    console.log(req.body.imageURL)
+    const python = spawn('python', ['colorization_master/demo_release.py', `-i ./public/uploads/${req.body.imageURL}`]);
+    // const python = spawn('python', ['colorization_master/demo_release.py']);
 
     python.stdout.on('data', (data) => {
     console.log('pattern: ', data.toString());
