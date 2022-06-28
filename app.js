@@ -5,6 +5,7 @@ const bodyparser = require('body-parser');
 const hbs = require('handlebars');
 const path = require('path')
 const app = express()
+var fs = require('fs');
 const port = 3000
 
 const indexRouter = require("./routes/indexRoute");
@@ -23,7 +24,14 @@ app.engine('hbs', exphbs.engine({
     }
 }));
 
-app.set('view engine', 'hbs');
+app.set('view engine', 'hbs'); 
+
+
+var dir = './public/uploads';
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
 
 app.use(express.static('./public'))
 
