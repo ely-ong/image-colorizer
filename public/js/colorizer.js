@@ -56,7 +56,13 @@ function readURL(input) {
       contentType: false,
       processData: false
     }).done(function (data) {
-      console.log(data);
+      console.log("doneeee")
+      console.log(data)
+      $('#colorTag').addClass('active')
+      $('#origTag').removeClass('active')
+      $('.file-upload-image').attr('src', `colorized/${data.colorized}.png`);
+      $('.image-name').html(`${data.colorized}.png`);
+      $('.image-name').show();
     });
   });
 

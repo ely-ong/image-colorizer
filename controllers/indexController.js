@@ -24,12 +24,16 @@ exports.getColorizer = (req, res) => {
 exports.colorizeImage = (req, res) => {
     console.log('here1')
     console.log(req.body.imageURL)
-    const python = spawn('python', ['colorization_master/demo_release.py', `-i ./public/uploads/${req.body.imageURL}`]);
+    file_name = `colorized_${req.body.imageURL}`
+    colorized_name = file_name.substr(0, file_name.lastIndexOf('.'));
+    params = `./public/uploads/${req.body.imageURL}  ${colorized_name}`
+    const python = spawn('python', ['colorization_master/demo_release.py', params]);
     // const python = spawn('python', ['colorization_master/demo_release.py']);
 
     python.stdout.on('data', (data) => {
     console.log('pattern: ', data.toString());
-    });
+    res.status(200).json({ colorized: colorized_name});
+    }); 
 
     python.stderr.on('data', (data) => {
     console.error('err: ', data.toString());
@@ -42,6 +46,7 @@ exports.colorizeImage = (req, res) => {
     python.on('close', (code) => {
     console.log('child process exited with code ', code);
     });
+    
 }
 
 exports.getAbout = (req, res) => {

@@ -27,10 +27,15 @@ app.engine('hbs', exphbs.engine({
 app.set('view engine', 'hbs'); 
 
 
-var dir = './public/uploads';
+var upload_dir = './public/uploads';
+var colorized_dir = './public/colorized';
 
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
+if (!fs.existsSync(upload_dir)){
+    fs.mkdirSync(upload_dir);
+}
+
+if (!fs.existsSync(colorized_dir)){
+    fs.mkdirSync(colorized_dir);
 }
 
 app.use(express.static('./public'))
