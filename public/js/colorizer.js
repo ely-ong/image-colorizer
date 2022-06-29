@@ -89,7 +89,7 @@ function uploadURL() {
   if ($("#image-url").val()) {
     var filename = $("#image-url").val().match(/.*\/(.*)$/)[1];
 
-    var extensions = ['jpg', 'png','gif'];
+    var extensions = ['jpg', 'png'];
     var inputExt = filename.substr(filename.lastIndexOf('.') + 1);
 
     if ($.inArray(inputExt, extensions) == -1){
