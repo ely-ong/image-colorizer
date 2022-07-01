@@ -1,4 +1,5 @@
 $('.image-name').hide();
+$('.dl-btn').prop('disabled', true);
 
 function downloadImg(){
   var img = $('.file-upload-image').attr('src');
@@ -55,6 +56,7 @@ $('#upload-btn-hidden').click(function(e){
   $('.notif-box-success').text("Colorizing image...please wait.");
   $('.notif-box-success').show();
   $('#colorTag').prop('disabled', true);
+  $('.dl-btn').prop('disabled', true);
   $.ajax({
     type: "POST",
     url: "/colorizeImage",
@@ -64,6 +66,7 @@ $('#upload-btn-hidden').click(function(e){
     processData: false
   }).done(function (data) {
     $('.preview-tab').prop('disabled', false);
+    $('.dl-btn').prop('disabled', false);
     $('#colorTag').addClass('active')
     $('#origTag').removeClass('active')
     $('.file-upload-image').attr('src', `colorized/${data.colorized}.png`);
@@ -79,6 +82,7 @@ $('#upload-btn-hidden').click(function(e){
 
 function removeUpload() {
   $('.preview-tab').prop('disabled', true);
+  $('.dl-btn').prop('disabled', true);
   $('.file-upload-input').replaceWith($('.file-upload-input').clone());
   $('.file-upload-content').hide();
   $('.image-upload-wrap').show();

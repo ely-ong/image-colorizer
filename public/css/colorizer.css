@@ -257,6 +257,7 @@ li > button.preview-tab:focus{
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     color: #004E64;
+    padding-top: 10px;
 }
 
 .clear-btn{
@@ -281,6 +282,10 @@ li > button.preview-tab:focus{
     font-style: normal;
     font-weight: 700;
     color: #FFFFFF;
+}
+
+.dl-btn:disabled{
+  opacity: 0.8;
 }
   
   .file-upload-content {
