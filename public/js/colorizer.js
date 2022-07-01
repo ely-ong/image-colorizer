@@ -93,7 +93,10 @@ function removeUpload() {
   $('.no-image-text').show();
   $('.notif-box-success').hide();
   $('.notif-box-fail').hide();
+
+  $('.no-image-box').show();
 }
+
 $('.image-upload-wrap').bind('dragover', function () {
   $('.image-upload-wrap').addClass('image-dropping');
   });
