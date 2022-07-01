@@ -72,6 +72,8 @@ $('#upload-btn-hidden').click(function(e){
     $('.original-name').hide();
     $('.notif-box-success').text("Image successfully colored!");
     $('.notif-box-success').show().delay(5000).fadeOut(); //show for 5 secs
+    
+    $('.no-image-box').hide();
   });
 });
 
@@ -139,7 +141,7 @@ $('#origTag').click(function(e){
 
   $('.file-upload-image').attr('src', `uploads/${filename_original}`);
   
-  if($('.no-image').is(":hidden")){
+  if($('.no-image-box').is(":hidden")){
     $('.original-name').show(); 
     $('.colorized-name').hide(); 
   }
@@ -154,7 +156,7 @@ $('#colorTag').click(function(e){
 
   $('.file-upload-image').attr('src', `colorized/${filename_colorized}`);
 
-  if($('.no-image').is(":hidden")){
+  if($('.no-image-box').is(":hidden")){
     $('.original-name').hide(); 
     $('.colorized-name').show(); 
   }
