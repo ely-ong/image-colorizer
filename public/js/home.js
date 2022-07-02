@@ -32,6 +32,37 @@ function readURL(input) {
   }
 }
 
+function getBase64Image(img) {
+  var canvas = document.createElement("canvas");
+  canvas.width = img.width;
+  canvas.height = img.height;
+  var ctx = canvas.getContext("2d");
+  ctx.drawImage(img, 0, 0);
+  var dataURL = canvas.toDataURL("image/png");
+  return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+}
+
+//var base64 = getBase64Image(document.getElementById("imageid"));
+
+function processImage(){
+  console.log("processImage()")
+  var base64 = getBase64Image(document.getElementById("sample"));
+  var formData = new FormData(form);
+  formData.append('imageURL', base64);
+    // formData.append('colorized', `colorized_${colorized_name}.png`);
+    $.ajax({
+      type: "POST",
+      url: "/colorize",
+      data: formData,
+      //use contentType, processData for sure.
+      contentType: false,
+      processData: false
+    }).done(function (data) {
+      console.log("data hereee", data.file_name, data.colorized_name)
+      window.location = `/colorizer/${data.file_name}/${data.colorized_name}`
+    });
+}
+
 function removeUpload() {
   $('.preview-tab').prop('disabled', true);
   $('.dl-btn').prop('disabled', true);
