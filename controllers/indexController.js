@@ -13,14 +13,50 @@ exports.getHomepage = (req, res) => {
 }
 
 exports.getColorizer = (req, res) => {
+    from_home = false
+    console.log("params here", req.params.original, req.params.colorized)
+    if (req.params.original != undefined || req.params.colorized != undefined)
+        from_home = true
+    console.log("from_home", from_home)
     res.render('colorizer',  { 
         title: 'Colorizer - Image Explorer Colorizer', 
         layout: 'colorizer_layout', 
+        from_home,
         css: ['main.css', 'colorizer.css'],
+        original_name: req.params.original,
+        colorized_name: req.params.colorized,
         js:['colorizer.js']
     });
 }
  
+exports.postColorizer = (req, res) => {
+    console.log('here1')
+    console.log(req.body.imageURL)
+    file_name = `${req.body.imageURL}`
+    colorized_name = `colorized_${file_name}`
+    colorized_name = colorized_name.substr(0, colorized_name.lastIndexOf('.'));
+    params = `./public/uploads/${req.body.imageURL}  ${colorized_name}`
+    const python = spawn('python', ['colorization_master/demo_release.py', params]);
+
+    python.stdout.on('data', (data) => {
+        console.log('pattern', data.toString())
+        console.log('file and colorized', file_name, colorized_name)
+        res.status(200).json({ file_name: file_name, colorized_name: colorized_name});
+    }); 
+
+    python.stderr.on('data', (data) => {
+        console.error('err: ', data.toString());
+    });
+
+    python.on('error', (error) => {
+        console.error('error: ', error.message);
+    });
+
+    python.on('close', (code) => {
+        console.log('child process exited with code ', code);
+    });
+}
+
 exports.colorizeImage = (req, res) => {
     console.log('here1')
     console.log(req.body.imageURL)
@@ -32,7 +68,7 @@ exports.colorizeImage = (req, res) => {
 
     python.stdout.on('data', (data) => {
     console.log('pattern: ', data.toString());
-    res.status(200).json({ colorized: colorized_name});
+        res.status(200).json({ colorized: colorized_name});
     }); 
 
     python.stderr.on('data', (data) => {

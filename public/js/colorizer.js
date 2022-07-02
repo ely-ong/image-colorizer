@@ -25,18 +25,15 @@ function readURL(input) {
       imgUploaded = e.target.result;
       $("#imageURL").attr("src", reader.result);
       $('.image-upload-wrap').hide();
-      $('#image-url').prop('disabled', true);
-      $('.url-submit').prop('disabled', true);
-      $('.file-upload-btn').prop('disabled', true);
+      // $('#image-url').prop('disabled', true);
+      // $('.url-submit').prop('disabled', true);
+      // $('.file-upload-btn').prop('disabled', true);
       $('.file-upload-image').attr('src', e.target.result);
       $('.file-upload-content').show();
       $('#origTag').addClass("active")
 
-      // $('.image-title').html(input.files[0].name);
       $('.original-name').html(input.files[0].name);
-      $('.original-name').show();
 
-      // download(imgUploaded, input.files[0].name)  
       $("#upload-btn-hidden").trigger('click'); 
     };
 
@@ -48,6 +45,9 @@ function readURL(input) {
 }
 
 $('#upload-btn-hidden').click(function(e){
+  $('.original-name').show();
+  $('.colorized-name').hide();
+  $('#colorTag').removeClass("active");
   e.preventDefault();
 
   var form = $('#uploadImage')[0]; 
@@ -65,14 +65,14 @@ $('#upload-btn-hidden').click(function(e){
     contentType: false,
     processData: false
   }).done(function (data) {
+    $('.original-name').hide();
     $('.preview-tab').prop('disabled', false);
     $('.dl-btn').prop('disabled', false);
     $('#colorTag').addClass('active')
     $('#origTag').removeClass('active')
-    $('.file-upload-image').attr('src', `colorized/${data.colorized}.png`);
+    $('.file-upload-image').attr('src', `/colorized/${data.colorized}.png`);
     $('.colorized-name').html(`${data.colorized}.png`);
     $('.colorized-name').show();
-    $('.original-name').hide();
     $('.notif-box-success').text("Image successfully colored!");
     $('.notif-box-success').show().delay(5000).fadeOut(); //show for 5 secs
     
@@ -131,7 +131,7 @@ function uploadURL() {
       $('.image-upload-wrap').hide();
       $('.file-upload-btn').hide();
       $('.file-upload-content').show();
-      $('#origTag').addClass("active")
+      // $('#origTag').addClass("active")
       $('.original-name').text(filename);
       $('.original-name').show();
       $('.no-image').hide();
@@ -144,9 +144,10 @@ function uploadURL() {
 $('#origTag').click(function(e){
   $('#origTag').addClass('active')
   $('#colorTag').removeClass('active')
-  filename_original = $("#imageURL")[0].files[0].name
+  
+  filename_original = $('.original-name').text().trim();
 
-  $('.file-upload-image').attr('src', `uploads/${filename_original}`);
+  $('.file-upload-image').attr('src', `/uploads/${filename_original}`);
   
   if($('.no-image-box').is(":hidden")){
     $('.original-name').show(); 
@@ -159,9 +160,11 @@ $('#colorTag').click(function(e){
   $('#origTag').removeClass('active')
   $('#colorTag').addClass('active')
   
-  filename_colorized = $('.colorized-name').text();
+  filename_colorized = $('.colorized-name').text().trim()
 
-  $('.file-upload-image').attr('src', `colorized/${filename_colorized}`);
+  console.log("filename", filename_colorized)
+
+  $('.file-upload-image').attr('src', `/colorized/${filename_colorized}`);
 
   if($('.no-image-box').is(":hidden")){
     $('.original-name').hide(); 
@@ -169,3 +172,10 @@ $('#colorTag').click(function(e){
   }
   
 });
+
+if($('.original-name').text().trim() != "" && $('.colorized-name').text().trim() != "") {
+  console.log("clicked")
+  $('.no-image-box').hide()
+  $("#colorTag").trigger('click'); 
+  $('.file-upload-content').show();
+}

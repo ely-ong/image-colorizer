@@ -1,9 +1,6 @@
 const router = require('express').Router();
 const indexController = require('../controllers/indexController')
 
-router.get('/', indexController.getHomepage);
-router.get('/colorizer', indexController.getColorizer);
-
 const multer = require('multer');
 
 //for uploading files with multer
@@ -31,6 +28,10 @@ const storage = multer.diskStorage({
     fileFilter: fileFilter
 });
 
+router.get('/', indexController.getHomepage);
+router.get('/colorizer', indexController.getColorizer);
+router.get('/colorizer/:original/:colorized', indexController.getColorizer);
+router.post('/colorize', upload.single('imageURL'), indexController.postColorizer);
 router.post('/colorizeImage', upload.single('imageURL'), indexController.colorizeImage);
 router.get('/about', indexController.getAbout);
 router.get('*', indexController.getError);

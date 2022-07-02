@@ -48,13 +48,20 @@
         </div>
       </div>
       <div class="image-name original-name">
-        <span>name.png</span>
+        <span>{{#if original_name}}
+                {{original_name}}
+              {{/if}}
+        </span>
       </div>
       <div class="image-name colorized-name">
-        <span>name.png</span>
+        <span>{{#if colorized_name}}
+                {{colorized_name}}.png
+              {{/if}}
+        </span>
       </div>
       <div class="image-btns-box">
         <button class="image-btns clear-btn" onclick="removeUpload()">Clear</button>
         <button class="image-btns dl-btn" onclick="downloadImg()">Download</button>
       </div>
+      <button style="display: none" id="img_from_home">colorized done</button>
   </div>

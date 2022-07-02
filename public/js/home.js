@@ -1,53 +1,54 @@
 function readURL(input) {
-    if (input.files && input.files[0]) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
 
-      var reader = new FileReader();
+    reader.onload = function(e) {
+      $("#imageURL").attr("src", reader.result);
+      console.log("imageurl", $("#imageURL")[0].files[0].name)
+    };
 
-      reader.onload = function(e) {
-        $('.image-upload-wrap').hide();
-        $('.file-upload-btn').hide();
-        $('.file-upload-image').attr('src', e.target.result);
-        $("#imageURL").attr("src", reader.result);
-        $('.file-upload-content').show();
-
-        $('.image-title').html(input.files[0].name);
-        $("#upload-btn-hidden").trigger('click'); 
-      };
-
-      reader.readAsDataURL(input.files[0]);
-
-    } else {
-      removeUpload();
-    }
-  }
-
-  $('#upload-btn-hidden').click(function(e){
-    e.preventDefault();
+    reader.readAsDataURL(input.files[0]);
 
     var form = $('#uploadImage')[0]; 
     var formData = new FormData(form);     
-    formData.append('imageURL', $("#imageURL")[0].files[0].name);
+    original_name = $("#imageURL")[0].files[0].name;
+    // colorized_name = original_name.substr(0, original_name.lastIndexOf('.'));
+    formData.append('imageURL', original_name);
+    // formData.append('colorized', `colorized_${colorized_name}.png`);
     $.ajax({
       type: "POST",
-      url: "/colorizeImage",
+      url: "/colorize",
       data: formData,
       //use contentType, processData for sure.
       contentType: false,
       processData: false
     }).done(function (data) {
-      console.log(data);
+      console.log("data hereee", data.file_name, data.colorized_name)
+      window.location = `/colorizer/${data.file_name}/${data.colorized_name}`
     });
-  });
 
-  function removeUpload() {
-    $('.file-upload-input').replaceWith($('.file-upload-input').clone());
-    $('.file-upload-content').hide();
-    $('.image-upload-wrap').show();
-    $('.file-upload-btn').show();
+  } else { 
+    removeUpload();
   }
-  $('.image-upload-wrap').bind('dragover', function () {
-    $('.image-upload-wrap').addClass('image-dropping');
-    });
-    $('.image-upload-wrap').bind('dragleave', function () {
-      $('.image-upload-wrap').removeClass('image-dropping');
-  });
+}
+
+function removeUpload() {
+  $('.preview-tab').prop('disabled', true);
+  $('.dl-btn').prop('disabled', true);
+  $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+  $('.file-upload-content').hide();
+  $('.image-upload-wrap').show();
+  $('#image-url').prop('disabled', false);
+  $('.url-submit').prop('disabled', false);
+  $('.file-upload-btn').prop('disabled', false);
+  $('.image-name').hide();
+  $('#origTag').removeClass("active");
+  $('#colorTag').removeClass("active");
+  $("#image-url").val('');
+  $('.no-image').show();
+  $('.no-image-text').show();
+  $('.notif-box-success').hide();
+  $('.notif-box-fail').hide();
+
+  $('.no-image-box').show();
+}
