@@ -53,6 +53,7 @@ $('#upload-btn-hidden').click(function(e){
   var form = $('#uploadImage')[0]; 
   var formData = new FormData(form);     
   formData.append('imageURL', $("#imageURL")[0].files[0].name);
+  $('.notif-box-success').css('background', '#AD9749')
   $('.notif-box-success').text("Colorizing image...please wait.");
   $('.notif-box-success').show();
   $('#colorTag').prop('disabled', true);
@@ -73,6 +74,7 @@ $('#upload-btn-hidden').click(function(e){
     $('.file-upload-image').attr('src', `/colorized/${data.colorized}.png`);
     $('.colorized-name').html(`${data.colorized}.png`);
     $('.colorized-name').show();
+    $('.notif-box-success').css('background', '#006C8A')
     $('.notif-box-success').text("Image successfully colored!");
     $('.notif-box-success').show().delay(5000).fadeOut(); //show for 5 secs
     
