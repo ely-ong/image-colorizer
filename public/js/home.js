@@ -41,28 +41,23 @@ function readURL(input) {
   }
 }
 
-// function getBase64Image(img) {
-//   var canvas = document.createElement("canvas");
-//   canvas.width = img.width;
-//   canvas.height = img.height;
-//   var ctx = canvas.getContext("2d");
-//   ctx.drawImage(img, 0, 0);
-//   var dataURL = canvas.toDataURL("image/png");
-//   return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-// }
-
-//var base64 = getBase64Image(document.getElementById("imageid"));
-
 function processImage(img){
     console.log("processImage()")
+
+    var src = img.src.split('/');
+    var name = src[src.length - 1];
+    console.log(name)
 
     fetch(img.src)
       .then(res => res.blob())
       .then(blob => {
-        const file = new File([blob], "sample-image.png", {
-            type: 'image/png'
+        const file = new File([blob], name, {
+            type: 'image/jpg'
         });
-        var formData = new FormData();
+
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        var formData = new FormData(file);
         formData.append('imageURL', file.name);
         console.log(file.name)
         $.ajax({
