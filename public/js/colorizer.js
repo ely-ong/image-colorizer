@@ -1,9 +1,9 @@
 $('.image-name').hide();
-$('.dl-btn').prop('disabled', true);
+$('.dl-btn').prop('disabled', false);
 
 function downloadImg(){
   var img = $('.file-upload-image').attr('src');
-  var fileName = $(".image-name").text();
+  var fileName = $(".original-name").text();
   var str1 = 'colorized-';
   var finalFileName = str1.concat(fileName.toString());
   var el = document.createElement("a");
@@ -79,6 +79,11 @@ $('#upload-btn-hidden').click(function(e){
     $('.notif-box-success').show().delay(5000).fadeOut(); //show for 5 secs
     
     $('.no-image-box').hide();
+  })
+  .fail(function(){
+      $('.notif-box-success').hide();
+      $('.notif-box-fail').text("An error occurred in image colorization. Try another image.");
+      $('.notif-box-fail').show();
   });
 });
 
@@ -111,19 +116,21 @@ $('.image-upload-wrap').bind('dragover', function () {
 });
 
 function uploadURL() {
-  console.log("huh")
-  if ($("#image-url").val()) {
+  // console.log("huh")
+  var img_url = $("#image-url").val();
+
+  if (img_url) {
     var filename = $("#image-url").val().match(/.*\/(.*)$/)[1];
 
-    var extensions = ['jpg', 'png'];
+    var extensions = ['jpg', 'jpeg', 'png'];
     var inputExt = filename.substr(filename.lastIndexOf('.') + 1);
 
     if ($.inArray(inputExt, extensions) == -1){
-        $('.notif-box-fail').text("Entered URL is invalid. Please enter an image URL.");
+        $('.notif-box-fail').text("Entered URL is invalid. Please enter a URL ending in .jpg or .png .");
         $('.notif-box-fail').show();
         $("#image-url").val('');
         $('.image-name').hide();
-        $('.no-image-box').hide();
+        // $('.no-image-box').hide();
     }
 
     else{
@@ -133,15 +140,79 @@ function uploadURL() {
       $('.image-upload-wrap').hide();
       $('.file-upload-btn').hide();
       $('.file-upload-content').show();
-      // $('#origTag').addClass("active")
+      $('#origTag').addClass("active")
+      $('.original-name').show();
+      $('.colorized-name').hide();
+      $('#colorTag').removeClass("active");
       $('.original-name').text(filename);
       $('.original-name').show();
       $('.no-image').hide();
       $('.no-image-text').hide();
+ 
+      $('.notif-box-success').css('background', '#AD9749')
+      $('.notif-box-success').text("Colorizing image...please wait.");
+      $('.notif-box-success').show();
+      $('#colorTag').prop('disabled', true);
+      $('.dl-btn').prop('disabled', true);
+
+      processURL(img_url, filename);
+
     }
-    
   }
-};
+}
+
+function processURL(img_url, filename){
+
+  // added proxy to work around CORS error
+  const proxy = 'https://api.allorigins.win/raw?url='
+
+  fetch(proxy+img_url)
+    .then(function(res){
+      return res.blob();
+    })
+    .then(blob => {
+      const file = new File([blob], filename, {
+          type: 'image/jpg'
+      });
+
+      var formData = new FormData();
+      formData.append('imageURL', file);
+      formData.append('imageURL', file.name);
+
+      // console.log(file);
+      // console.log(file.name);
+
+      $.ajax({
+        type: "POST",
+        url: "/colorizeImage",
+        data: formData,
+        //use contentType, processData for sure.
+        contentType: false,
+        processData: false,
+      }).done(function (data) {
+        $('.original-name').hide();
+        $('.preview-tab').prop('disabled', false);
+        $('.dl-btn').prop('disabled', false);
+        $('#colorTag').addClass('active')
+        $('#origTag').removeClass('active')
+        $('.file-upload-image').attr('src', `/colorized/${data.colorized}.png`);
+        $('.colorized-name').html(`${data.colorized}.png`);
+        $('.colorized-name').show();
+        $('.notif-box-success').css('background', '#006C8A')
+        $('.notif-box-success').text("Image successfully colored!");
+        $('.notif-box-success').show().delay(5000).fadeOut(); //show for 5 secs
+      
+        $('.no-image-box').hide();
+      })
+      .fail(function(){
+        $('.notif-box-success').hide();
+        $('.notif-box-fail').text("An error occurred in image colorization. Try another image.");
+        $('.notif-box-fail').show();
+      });
+
+    });
+  
+}
 
 $('#origTag').click(function(e){
   $('#origTag').addClass('active')
