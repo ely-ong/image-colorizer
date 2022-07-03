@@ -4,7 +4,7 @@ $('.dl-btn').prop('disabled', false);
 function downloadImg(){
   var img = $('.file-upload-image').attr('src');
   var fileName = $(".original-name").text();
-  var str1 = 'colorized-';
+  var str1 = 'colorized_';
   var finalFileName = str1.concat(fileName.toString());
   var el = document.createElement("a");
   
@@ -126,7 +126,7 @@ function uploadURL() {
     var inputExt = filename.substr(filename.lastIndexOf('.') + 1);
 
     if ($.inArray(inputExt, extensions) == -1){
-        $('.notif-box-fail').text("Entered URL is invalid. Please enter a URL ending in .jpg or .png .");
+        $('.notif-box-fail').text("Entered URL is invalid. Please enter a URL ending in '.jpg' or '.png'.");
         $('.notif-box-fail').show();
         $("#image-url").val('');
         $('.image-name').hide();

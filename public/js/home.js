@@ -44,6 +44,8 @@ function readURL(input) {
 function processImage(img){
     console.log("processImage()")
 
+    $('.notif-box-loading').show();
+
     var src = img.src.split('/');
     var name = src[src.length - 1];
     console.log(name)

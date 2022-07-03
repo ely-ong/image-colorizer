@@ -1,7 +1,8 @@
 body {
     height: 100vh;
     margin: 0; 
-    padding: 0;
+    /* padding: 0; */
+    padding-top: 50px;
 }
 
 .about-section{
@@ -13,7 +14,7 @@ body {
 }
 
 .about-project{
-    padding: 4em 2em 0;
+    padding: 4em 4em 0;
 }
 
 .about-section p{
@@ -60,7 +61,7 @@ div.ref {
 }
 
 div.developers {
-    padding: 2em 2em 0;
+    padding: 2em 4em 0;
 }
 
 #devs{ 
