@@ -155,13 +155,13 @@ function uploadURL() {
       $('#colorTag').prop('disabled', true);
       $('.dl-btn').prop('disabled', true);
 
-      processURL(img_url, filename);
+      processURL(img_url, filename, inputExt);
 
     }
   }
 }
 
-function processURL(img_url, filename){
+function processURL(img_url, filename, img_ext){
 
   // added proxy to work around CORS error
   const proxy = 'https://api.allorigins.win/raw?url='
@@ -196,7 +196,7 @@ function processURL(img_url, filename){
         $('#colorTag').addClass('active')
         $('#origTag').removeClass('active')
         $('.file-upload-image').attr('src', `/colorized/${data.colorized}.png`);
-        $('.colorized-name').html(`${data.colorized}.png`);
+        $('.colorized-name').html(`${data.colorized}.`+img_ext);
         $('.colorized-name').show();
         $('.notif-box-success').css('background', '#006C8A')
         $('.notif-box-success').text("Image successfully colored!");
