@@ -1,4 +1,5 @@
-$('.image-name').hide();
+$('.url-submit').prop('disabled', true);
+$('.file-upload-btn').hide();
 $('.dl-btn').prop('disabled', false);
 $('.clear-btn').prop('disabled', false);
 
@@ -79,7 +80,6 @@ $('#upload-btn-hidden').click(function(e){
     processData: false
   }).done(function (data) {
     $('.original-name').hide();
-    $('.url-submit').prop('disabled', false);
     $('.preview-tab').prop('disabled', false);
     $('.dl-btn').prop('disabled', false);
     $('.clear-btn').prop('disabled', false);
@@ -102,6 +102,7 @@ $('#upload-btn-hidden').click(function(e){
 });
 
 function removeUpload() {
+  $('.url-submit').prop('disabled', false);
   $('.preview-tab').prop('disabled', true);
   $('.dl-btn').prop('disabled', true);
   $('.file-upload-input').replaceWith($('.file-upload-input').clone());
@@ -208,7 +209,6 @@ function processURL(img_url, filename, img_ext){
         processData: false,
       }).done(function (data) {
         $('.original-name').hide();
-        $('.url-submit').prop('disabled', false);
         $('.preview-tab').prop('disabled', false);
         $('.dl-btn').prop('disabled', false);
         $('.clear-btn').prop('disabled', false);
