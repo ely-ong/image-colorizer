@@ -1,3 +1,11 @@
+// $(document).ready(function(){
+//   $('#sample').click(function(event){
+//       event.preventDefault();
+//       processImage('click-image');
+//   });
+// });
+
+
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
@@ -14,6 +22,7 @@ function readURL(input) {
     original_name = $("#imageURL")[0].files[0].name;
     // colorized_name = original_name.substr(0, original_name.lastIndexOf('.'));
     formData.append('imageURL', original_name);
+    console.log(original_name)
     // formData.append('colorized', `colorized_${colorized_name}.png`);
     $.ajax({
       type: "POST",
@@ -32,37 +41,45 @@ function readURL(input) {
   }
 }
 
-function getBase64Image(img) {
-  var canvas = document.createElement("canvas");
-  canvas.width = img.width;
-  canvas.height = img.height;
-  var ctx = canvas.getContext("2d");
-  ctx.drawImage(img, 0, 0);
-  var dataURL = canvas.toDataURL("image/png");
-  return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-}
+// function getBase64Image(img) {
+//   var canvas = document.createElement("canvas");
+//   canvas.width = img.width;
+//   canvas.height = img.height;
+//   var ctx = canvas.getContext("2d");
+//   ctx.drawImage(img, 0, 0);
+//   var dataURL = canvas.toDataURL("image/png");
+//   return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+// }
 
 //var base64 = getBase64Image(document.getElementById("imageid"));
 
-function processImage(){
-  console.log("processImage()")
-  var base64 = getBase64Image(document.getElementById("sample"));
-  var formData = new FormData(form);
-  formData.append('imageURL', base64);
-    // formData.append('colorized', `colorized_${colorized_name}.png`);
-    $.ajax({
-      type: "POST",
-      url: "/colorize",
-      data: formData,
-      //use contentType, processData for sure.
-      contentType: false,
-      processData: false
-    }).done(function (data) {
-      console.log("data hereee", data.file_name, data.colorized_name)
-      window.location = `/colorizer/${data.file_name}/${data.colorized_name}`
-    });
-}
+function processImage(img){
+    console.log("processImage()")
 
+    fetch(img.src)
+      .then(res => res.blob())
+      .then(blob => {
+        const file = new File([blob], "sample-image.png", {
+            type: 'image/png'
+        });
+        var formData = new FormData();
+        formData.append('imageURL', file.name);
+        console.log(file.name)
+        $.ajax({
+          type: "POST",
+          url: "/colorize",
+          data: formData,
+          //use contentType, processData for sure.
+          contentType: false,
+          processData: false
+        }).done(function (data) {
+          console.log("data hereee", data.file_name, data.colorized_name)
+          window.location = `/colorizer/${data.file_name}/${data.colorized_name}`
+        });
+});
+
+}
+  
 function removeUpload() {
   $('.preview-tab').prop('disabled', true);
   $('.dl-btn').prop('disabled', true);
