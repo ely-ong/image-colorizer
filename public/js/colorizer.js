@@ -258,3 +258,14 @@ if($('.original-name').text().trim() != "" && $('.colorized-name').text().trim()
   $("#colorTag").trigger('click'); 
   $('.file-upload-content').show();
 }
+
+$('#image-url').on('keyup', function() {
+  let empty = false;
+
+  empty = $('#image-url').val().trim().length == 0;
+
+  if (empty)
+    $('.url-submit').addClass('disabled-link');
+  else
+    $('.url-submit').removeClass('disabled-link');
+});

@@ -21,6 +21,10 @@ body {
     
 }
 
+.disabled-link {
+    pointer-events: none;
+  }
+
 .navbar-fix{
     position: fixed;
     top: 0;

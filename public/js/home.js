@@ -1,11 +1,3 @@
-// $(document).ready(function(){
-//   $('#sample').click(function(event){
-//       event.preventDefault();
-//       processImage('click-image');
-//   });
-// });
-
-
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
@@ -95,3 +87,14 @@ function removeUpload() {
 
   $('.no-image-box').show();
 }
+
+$('#image-url').on('keyup', function() {
+  let empty = false;
+
+  empty = $('#image-url').val().trim().length == 0;
+
+  if (empty)
+    $('.process-image').addClass('disabled-link');
+  else
+    $('.process-image').removeClass('disabled-link');
+});
