@@ -1,5 +1,6 @@
 $('.image-name').hide();
 $('.dl-btn').prop('disabled', false);
+$('.clear-btn').prop('disabled', false);
 
 function downloadImg(){
   var img = $('.file-upload-image').attr('src');
@@ -58,6 +59,7 @@ $('#upload-btn-hidden').click(function(e){
   $('.notif-box-success').show();
   $('#colorTag').prop('disabled', true);
   $('.dl-btn').prop('disabled', true);
+  $('.clear-btn').prop('disabled', true);
   $.ajax({
     type: "POST",
     url: "/colorizeImage",
@@ -69,6 +71,7 @@ $('#upload-btn-hidden').click(function(e){
     $('.original-name').hide();
     $('.preview-tab').prop('disabled', false);
     $('.dl-btn').prop('disabled', false);
+    $('.clear-btn').prop('disabled', false);
     $('#colorTag').addClass('active')
     $('#origTag').removeClass('active')
     $('.file-upload-image').attr('src', `/colorized/${data.colorized}.png`);
@@ -93,9 +96,10 @@ function removeUpload() {
   $('.file-upload-input').replaceWith($('.file-upload-input').clone());
   $('.file-upload-content').hide();
   $('.image-upload-wrap').show();
-  $('#image-url').prop('disabled', false);
-  $('.url-submit').prop('disabled', false);
-  $('.file-upload-btn').prop('disabled', false);
+  // $('#image-url').prop('disabled', false);
+  // $('.url-submit').prop('disabled', false);
+  // $('.file-upload-btn').prop('disabled', false);
+  $('.file-upload-btn').show();
   $('.image-name').hide();
   $('#origTag').removeClass("active");
   $('#colorTag').removeClass("active");
@@ -154,6 +158,7 @@ function uploadURL() {
       $('.notif-box-success').show();
       $('#colorTag').prop('disabled', true);
       $('.dl-btn').prop('disabled', true);
+      $('.clear-btn').prop('disabled', true);
 
       processURL(img_url, filename, inputExt);
 
@@ -193,6 +198,7 @@ function processURL(img_url, filename, img_ext){
         $('.original-name').hide();
         $('.preview-tab').prop('disabled', false);
         $('.dl-btn').prop('disabled', false);
+        $('.clear-btn').prop('disabled', false);
         $('#colorTag').addClass('active')
         $('#origTag').removeClass('active')
         $('.file-upload-image').attr('src', `/colorized/${data.colorized}.png`);

@@ -287,6 +287,10 @@ li > button.preview-tab:focus{
 .dl-btn:disabled{
   opacity: 0.8;
 }
+
+.clear-btn:disabled{
+  opacity: 0.8;
+}
   
   .file-upload-content {
     display: none;
