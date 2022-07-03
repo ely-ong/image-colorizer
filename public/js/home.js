@@ -54,10 +54,8 @@ function processImage(img){
         const file = new File([blob], name, {
             type: 'image/jpg'
         });
-
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        var formData = new FormData(file);
+        var formData = new FormData();
+        formData.append('imageURL', file);
         formData.append('imageURL', file.name);
         console.log(file.name)
         $.ajax({
