@@ -96,6 +96,7 @@ div.preview-box{
 
 .url-submit:disabled {
   opacity: 0.6;
+  pointer-events: none;
 }
 
 #image-url{
@@ -151,6 +152,7 @@ div.preview-box{
 
   .file-upload-btn:disabled {
     opacity: 0.8;
+    pointer-events: none;
   }
 
   .upload-label {
@@ -231,6 +233,10 @@ li > button.preview-tab:not(.active):hover {
     transition: all .2s ease;
 }
 
+li > button.preview-tab:disabled {
+  pointer-events: none;
+}
+
 li > button.preview-tab:focus{
   outline: none;
 }
@@ -286,10 +292,12 @@ li > button.preview-tab:focus{
 
 .dl-btn:disabled{
   opacity: 0.8;
+  pointer-events: none;
 }
 
 .clear-btn:disabled{
   opacity: 0.8;
+  pointer-events: none;
 }
   
   .file-upload-content {
