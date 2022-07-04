@@ -1,3 +1,4 @@
+$('#image-url').prop('disabled', true);
 $('.url-submit').prop('disabled', true);
 $('.file-upload-btn').hide();
 $('.dl-btn').prop('disabled', false);
@@ -67,6 +68,7 @@ $('#upload-btn-hidden').click(function(e){
   $('.notif-box-success').css('background', '#AD9749')
   $('.notif-box-success').text("Colorizing image...please wait.");
   $('.notif-box-success').show();
+  $('#image-url').prop('disabled', true);
   $('.url-submit').prop('disabled', true);
   $('#colorTag').prop('disabled', true);
   $('.dl-btn').prop('disabled', true);
@@ -108,7 +110,7 @@ function removeUpload() {
   $('.file-upload-input').replaceWith($('.file-upload-input').clone());
   $('.file-upload-content').hide();
   $('.image-upload-wrap').show();
-  // $('#image-url').prop('disabled', false);
+  $('#image-url').prop('disabled', false);
   // $('.url-submit').prop('disabled', false);
   // $('.file-upload-btn').prop('disabled', false);
   $('.file-upload-btn').show();
@@ -168,6 +170,7 @@ function uploadURL() {
       $('.notif-box-success').css('background', '#AD9749')
       $('.notif-box-success').text("Colorizing image...please wait.");
       $('.notif-box-success').show();
+      $('#image-url').prop('disabled', true);
       $('.url-submit').prop('disabled', true);
       $('#colorTag').prop('disabled', true);
       $('.dl-btn').prop('disabled', true);
@@ -233,6 +236,7 @@ function processURL(img_url, filename){
         $('.notif-box-success').hide();
         $('.notif-box-fail').text("An error occurred in image colorization. Try another image.");
         $('.notif-box-fail').show();
+        $('.clear-btn').prop('disabled', false);
       });
 
     });
