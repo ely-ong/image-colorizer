@@ -173,18 +173,24 @@ function uploadURL() {
       $('.dl-btn').prop('disabled', true);
       $('.clear-btn').prop('disabled', true);
 
-      processURL(img_url, filename, inputExt);
+      processURL(img_url, filename);
 
     }
   }
 }
 
-function processURL(img_url, filename, img_ext){
+function processURL(img_url, filename){
 
   // added proxy to work around CORS error
   const proxy = 'https://api.allorigins.win/raw?url='
 
   fetch(proxy+img_url)
+    .catch(error => {
+      $('.notif-box-success').hide();
+      $('.notif-box-fail').text("An error occurred in retrieving image. Try another image.");
+      $('.notif-box-fail').show();
+      $('.clear-btn').prop('disabled', false);
+    })
     .then(function(res){
       return res.blob();
     })
