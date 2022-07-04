@@ -6,7 +6,9 @@ const hbs = require('handlebars');
 const path = require('path')
 const app = express()
 var fs = require('fs');
-const port = 3000
+const { envPort } = require('./config');
+
+const port = envPort || 3000;
 
 const indexRouter = require("./routes/indexRoute");
 
