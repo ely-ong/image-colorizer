@@ -53,6 +53,7 @@ function processURL(img_url, filename, img_ext){
         type: "POST",
         url: "/colorize",
         data: formData,
+        async: false,
         //use contentType, processData for sure.
         contentType: false,
         processData: false,
