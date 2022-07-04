@@ -41,7 +41,6 @@ exports.postColorizer = (req, res) => {
     python.stdout.on('data', (data) => {
         console.log('pattern', data.toString())
         console.log('file and colorized', file_name, colorized_name)
-        return res.status(200).json({ file_name: file_name, colorized_name: colorized_name});
     }); 
 
     python.stderr.on('data', (data) => {
@@ -54,6 +53,7 @@ exports.postColorizer = (req, res) => {
 
     python.on('close', (code) => {
         console.log('child process exited with code ', code);
+        return res.status(200).json({ file_name: file_name, colorized_name: colorized_name});
     });
 }
 
@@ -67,20 +67,21 @@ exports.colorizeImage = (req, res) => {
     // const python = spawn('python', ['colorization_master/demo_release.py']);
 
     python.stdout.on('data', (data) => {
-    console.log('pattern: ', data.toString());
-        return res.status(200).json({ colorized: colorized_name});
+        console.log('pattern: ', data.toString());
+        
     }); 
 
     python.stderr.on('data', (data) => {
-    console.error('err: ', data.toString());
+        console.error('err: ', data.toString());
     });
 
     python.on('error', (error) => {
-    console.error('error: ', error.message);
+        console.error('error: ', error.message);
     });
 
     python.on('close', (code) => {
-    console.log('child process exited with code ', code);
+        console.log('child process exited with code ', code);
+        return res.status(200).json({ colorized: colorized_name});
     });
     
 }
