@@ -245,7 +245,7 @@ $('#origTag').click(function(e){
     $('.original-name').show(); 
     $('.colorized-name').hide(); 
   }
-
+  $('.image-upload-wrap').hide()
 });
 
 $('#colorTag').click(function(e){
@@ -262,7 +262,7 @@ $('#colorTag').click(function(e){
     $('.original-name').hide(); 
     $('.colorized-name').show(); 
   }
-  
+  $('.image-upload-wrap').hide()
 });
 
 if($('.original-name').text().trim() != "" && $('.colorized-name').text().trim() != "") {
