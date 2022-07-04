@@ -41,7 +41,7 @@ exports.postColorizer = (req, res) => {
     python.stdout.on('data', (data) => {
         console.log('pattern', data.toString())
         console.log('file and colorized', file_name, colorized_name)
-        res.status(200).json({ file_name: file_name, colorized_name: colorized_name});
+        return res.status(200).json({ file_name: file_name, colorized_name: colorized_name});
     }); 
 
     python.stderr.on('data', (data) => {
@@ -68,7 +68,7 @@ exports.colorizeImage = (req, res) => {
 
     python.stdout.on('data', (data) => {
     console.log('pattern: ', data.toString());
-        res.status(200).json({ colorized: colorized_name});
+        return res.status(200).json({ colorized: colorized_name});
     }); 
 
     python.stderr.on('data', (data) => {
