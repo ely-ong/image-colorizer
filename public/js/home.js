@@ -116,28 +116,28 @@ function processImage(img){
     console.log(name)
 
     fetch(img.src)
-      .then(res => res.blob())
-      .then(blob => {
-        const file = new File([blob], name, {
-            type: 'image/jpg'
-        });
-        var formData = new FormData();
-        formData.append('imageURL', file);
-        formData.append('imageURL', file.name);
-        console.log(file.name)
-        $.ajax({
-          type: "POST",
-          url: "/colorize",
-          data: formData,
-          async: false,
-          //use contentType, processData for sure.
-          contentType: false,
-          processData: false, 
-          success: function (data) {
-            console.log("data hereee", data.file_name, data.colorized_name)
-            window.location = `/colorizer/${data.file_name}/${data.colorized_name}`
-          }
-        });
+    .then(res => res.blob())
+    .then(blob => {
+      const file = new File([blob], name, {
+          type: 'image/jpg'
+      });
+    var formData = new FormData();
+    formData.append('imageURL', file);
+    formData.append('imageURL', file.name);
+    console.log(file.name)
+    $.ajax({
+      type: "POST",
+      url: "/colorize",
+      data: formData,
+      async: false,
+      //use contentType, processData for sure.
+      contentType: false,
+      processData: false, 
+      success: function (data) {
+        console.log("data hereee", data.file_name, data.colorized_name)
+        window.location = `/colorizer/${data.file_name}/${data.colorized_name}`
+      }
+    });
 });
 
 }
