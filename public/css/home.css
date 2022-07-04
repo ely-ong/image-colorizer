@@ -255,3 +255,59 @@ div.welcome{
   a.click-image:hover{
     opacity: 0.6
   }
+
+  @media screen and (max-width: 1320px) {
+    div.thisdiv {
+      display: block;
+    }
+
+    div.rightside, div.sample-list {
+      margin: auto;
+      padding: 5%;
+      width: 100%;
+    }
+
+    div.image-search-box {
+      margin: 0;
+    }
+  }
+
+  @media screen and (max-width: 912px) {
+    .header2 {
+      font-size: 32px;
+    }
+    
+    .header3 {
+      font-size: 28px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .header2 {
+      font-size: 28px;
+    }
+
+    .header3 {
+      font-size: 24px;
+    }
+
+    #marilyn {
+      max-width: 100%;
+    }
+
+    .sample-photos-container {
+      flex-flow: row wrap;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .header2 {
+      font-size: 24px;
+    }
+    
+    .header3 {
+      font-size: 22px;
+    }
+  }
+
+  
