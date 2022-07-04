@@ -40,13 +40,33 @@ function readURL(input) {
       // $('#image-url').prop('disabled', true);
       // $('.url-submit').prop('disabled', true);
       // $('.file-upload-btn').prop('disabled', true);
+      $('.file-upload-btn').hide();
       $('.file-upload-image').attr('src', e.target.result);
       $('.file-upload-content').show();
       $('#origTag').addClass("active")
 
       $('.original-name').html(input.files[0].name);
 
-      $("#upload-btn-hidden").trigger('click'); 
+      var filename = $('.original-name').text();
+
+      var extensions = ['jpg', 'jpeg', 'png'];
+      var inputExt = filename.split('.').pop();
+
+      console.log(inputExt);
+
+      if ($.inArray(inputExt, extensions) == -1){
+          $('.notif-box-fail').text("Uploaded file is invalid. Please upload a JPG or PNG file.");
+          $('.notif-box-fail').show();
+          $("#image-url").val('');
+          $('.image-name').hide();
+          $('.file-upload-btn').hide();
+          // $('.no-image-box').hide();
+      }
+
+      else{
+        $("#upload-btn-hidden").trigger('click'); 
+      }
+        
     };
 
     reader.readAsDataURL(input.files[0]);
