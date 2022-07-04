@@ -134,7 +134,6 @@ $('.image-upload-wrap').bind('dragover', function () {
 });
 
 function uploadURL() {
-  // console.log("huh")
   var img_url = $("#image-url").val();
 
   if (img_url) {
@@ -188,6 +187,7 @@ function processURL(img_url, filename){
   const proxy = 'https://api.allorigins.win/raw?url='
 
   fetch(proxy+img_url)
+  //catch for images that don't bypass the CORS error
     .catch(error => {
       $('.notif-box-success').hide();
       $('.notif-box-fail').text("An error occurred in retrieving image. Try another image.");
@@ -205,9 +205,6 @@ function processURL(img_url, filename){
       var formData = new FormData();
       formData.append('imageURL', file);
       formData.append('imageURL', file.name);
-
-      // console.log(file);
-      // console.log(file.name);
 
       $.ajax({
         type: "POST",
