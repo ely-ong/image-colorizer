@@ -67,11 +67,15 @@ function processURL(img_url, filename, img_ext){
   
 }
 
+function openLoading() {
+  $('.notif-box-loading').show();
+  
+}
 
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
-
+      
     reader.onload = function(e) {
       $("#imageURL").attr("src", reader.result);
       console.log("imageurl", $("#imageURL")[0].files[0].name)
@@ -85,13 +89,13 @@ function readURL(input) {
     // colorized_name = original_name.substr(0, original_name.lastIndexOf('.'));
     formData.append('imageURL', original_name);
     console.log(original_name)
-    $('.notif-box-loading').show();
+    // $('.notif-box-loading').show();
     // formData.append('colorized', `colorized_${colorized_name}.png`);
     $.ajax({
       type: "POST",
       url: "/colorize",
       data: formData,
-      async: false,
+      // async: false,
       //use contentType, processData for sure.
       contentType: false,
       processData: false, 
