@@ -8,11 +8,11 @@ function downloadImg(){
   var fileName = "";
 
   if($(".colorized-name").is(":hidden")){
-    fileName = $(".original-name").text();
+    fileName = $(".original-name").text().trim();
   }
 
   else{
-    fileName = $(".colorized-name").text();
+    fileName = $(".colorized-name").text().trim();
   }
   
   // var str1 = 'colorized_';
