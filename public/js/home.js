@@ -56,9 +56,10 @@ function processURL(img_url, filename, img_ext){
         async: false,
         //use contentType, processData for sure.
         contentType: false,
-        processData: false,
-      }).done(function (data) {
-        window.location = `/colorizer/${data.file_name}/${data.colorized_name}`
+        processData: false, 
+        success: function (data) {
+          window.location = `/colorizer/${data.file_name}/${data.colorized_name}`
+        }
       })
 
 
@@ -93,10 +94,11 @@ function readURL(input) {
       async: false,
       //use contentType, processData for sure.
       contentType: false,
-      processData: false
-    }).done(function (data) {
-      console.log("data hereee", data.file_name, data.colorized_name)
-      window.location = `/colorizer/${data.file_name}/${data.colorized_name}`
+      processData: false, 
+      success: function (data) {
+        console.log("data hereee", data.file_name, data.colorized_name)
+        window.location = `/colorizer/${data.file_name}/${data.colorized_name}`
+      }
     });
 
   } else { 
@@ -130,10 +132,11 @@ function processImage(img){
           async: false,
           //use contentType, processData for sure.
           contentType: false,
-          processData: false
-        }).done(function (data) {
-          console.log("data hereee", data.file_name, data.colorized_name)
-          window.location = `/colorizer/${data.file_name}/${data.colorized_name}`
+          processData: false, 
+          success: function (data) {
+            console.log("data hereee", data.file_name, data.colorized_name)
+            window.location = `/colorizer/${data.file_name}/${data.colorized_name}`
+          }
         });
 });
 
@@ -160,7 +163,7 @@ function removeUpload() {
   $('.no-image-box').show();
 }
 
-$('#image-url').on('keyup', function() {
+$('#image-url').on('change', function() {
   let empty = false;
 
   empty = $('#image-url').val().trim().length == 0;
