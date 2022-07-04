@@ -52,7 +52,7 @@ function readURL(input) {
       var extensions = ['jpg', 'jpeg', 'png'];
       var inputExt = filename.split('.').pop();
 
-      console.log(inputExt);
+      // console.log(inputExt);
 
       if ($.inArray(inputExt, extensions) == -1){
           $('.notif-box-fail').text("Uploaded file is invalid. Please upload a JPG or PNG file.");
