@@ -76,6 +76,13 @@ function readURL(input) {
   }
 }
 
+function showFailNotif(){
+  $('.notif-box-success').hide();
+  $('.notif-box-fail').text("An error occurred in image colorization. Try another image.");
+  $('.notif-box-fail').show();
+  $('.dl-btn').prop('disabled', true);
+}
+
 $('#upload-btn-hidden').click(function(e){
   $('.original-name').show();
   $('.colorized-name').hide();
@@ -110,16 +117,19 @@ $('#upload-btn-hidden').click(function(e){
     $('.file-upload-image').attr('src', `/colorized/${data.colorized}.png`);
     $('.colorized-name').html(`${data.colorized}.png`);
     $('.colorized-name').show();
-    $('.notif-box-success').css('background', '#006C8A')
-    $('.notif-box-success').text("Image successfully colored!");
-    $('.notif-box-success').show().delay(5000).fadeOut(); //show for 5 secs
+    
+    // if image result is not broken
+    if($('.notif-box-fail').is(":hidden")){
+      $('.notif-box-success').css('background', '#006C8A')
+      $('.notif-box-success').text("Image successfully colored!");
+      $('.notif-box-success').show().delay(5000).fadeOut(); //show for 5 secs
+    }
     
     $('.no-image-box').hide();
   })
   .fail(function(){
-      $('.notif-box-success').hide();
-      $('.notif-box-fail').text("An error occurred in image colorization. Try another image.");
-      $('.notif-box-fail').show();
+    showFailNotif();
+    $('.clear-btn').prop('disabled', false);
   });
 });
 
@@ -243,16 +253,18 @@ function processURL(img_url, filename){
         $('.file-upload-image').attr('src', `/colorized/${data.colorized}.png`);
         $('.colorized-name').html(`${data.colorized}.png`);
         $('.colorized-name').show();
-        $('.notif-box-success').css('background', '#006C8A')
-        $('.notif-box-success').text("Image successfully colored!");
-        $('.notif-box-success').show().delay(5000).fadeOut(); //show for 5 secs
+
+        // if image result is not broken
+        if($('.notif-box-fail').is(":hidden")){
+          $('.notif-box-success').css('background', '#006C8A')
+          $('.notif-box-success').text("Image successfully colored!");
+          $('.notif-box-success').show().delay(5000).fadeOut(); //show for 5 secs
+        }
       
         $('.no-image-box').hide();
       })
       .fail(function(){
-        $('.notif-box-success').hide();
-        $('.notif-box-fail').text("An error occurred in image colorization. Try another image.");
-        $('.notif-box-fail').show();
+        showFailNotif();
         $('.clear-btn').prop('disabled', false);
       });
 
