@@ -17,7 +17,7 @@ function uploadURL() {
     else{
       $(".file-upload-image").attr("src", $("#image-url").val());
       // $('.file-upload-content').show();
-      $('.image-upload-wrap').hide();
+      // $('.image-upload-wrap').hide();
       $('.remove-image').hide();
       $('.notif-box-loading').css('background', '#AD9749')
       $('.notif-box-loading').text("Colorizing image...please wait.");
@@ -48,10 +48,7 @@ function processURL(img_url, filename, img_ext){
       var formData = new FormData();
       formData.append('imageURL', file);
       formData.append('imageURL', file.name);
-
-      // console.log(file);
-      // console.log(file.name);
-
+      
       $.ajax({
         type: "POST",
         url: "/colorize",
