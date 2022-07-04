@@ -348,10 +348,10 @@ li > button.preview-tab:focus{
   }
   
   .file-upload-image {
-    max-height: 300px;
-    max-width: 300px;
+    max-height: 600px;
+    max-width: 600px;
     margin: auto;
-    padding: 20px;
+    padding: 5px;
   }
 
   .file-select-image {
