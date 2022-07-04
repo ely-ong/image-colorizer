@@ -85,6 +85,7 @@ div.welcome{
   flex-direction: row;
 }
 
+
 #next{
   margin-top: 5px;
 }
@@ -154,11 +155,11 @@ div.welcome{
     position: relative;
   }
   
-  .image-dropping,
+  /* .image-dropping,
   .image-upload-wrap:hover {
     background-color: #83CFA2;
     border: 4px dashed #ffffff;
-  }
+  } */
   
   .image-title-wrap {
     padding: 0 15px 15px 15px;
