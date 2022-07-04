@@ -20,6 +20,7 @@ function readURL(input) {
       type: "POST",
       url: "/colorize",
       data: formData,
+      async: false,
       //use contentType, processData for sure.
       contentType: false,
       processData: false
@@ -56,6 +57,7 @@ function processImage(img){
           type: "POST",
           url: "/colorize",
           data: formData,
+          async: false,
           //use contentType, processData for sure.
           contentType: false,
           processData: false
