@@ -298,6 +298,11 @@ div.welcome{
     div.image-search-box {
       margin: 0;
     }
+
+    .disclaimer-box{
+      margin-left: 0;
+      margin-right: 0;
+    }
 }
 
 @media screen and (max-width: 912px) {
