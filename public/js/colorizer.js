@@ -40,13 +40,33 @@ function readURL(input) {
       // $('#image-url').prop('disabled', true);
       // $('.url-submit').prop('disabled', true);
       // $('.file-upload-btn').prop('disabled', true);
+      $('.file-upload-btn').hide();
       $('.file-upload-image').attr('src', e.target.result);
       $('.file-upload-content').show();
       $('#origTag').addClass("active")
 
       $('.original-name').html(input.files[0].name);
 
-      $("#upload-btn-hidden").trigger('click'); 
+      var filename = $('.original-name').text();
+
+      var extensions = ['jpg', 'jpeg', 'png'];
+      var inputExt = filename.split('.').pop();
+
+      // console.log(inputExt);
+
+      if ($.inArray(inputExt, extensions) == -1){
+          $('.notif-box-fail').text("Uploaded file is invalid. Please upload a JPG or PNG file.");
+          $('.notif-box-fail').show();
+          $("#image-url").val('');
+          $('.image-name').hide();
+          $('.file-upload-btn').hide();
+          // $('.no-image-box').hide();
+      }
+
+      else{
+        $("#upload-btn-hidden").trigger('click'); 
+      }
+        
     };
 
     reader.readAsDataURL(input.files[0]);
@@ -54,6 +74,13 @@ function readURL(input) {
   } else { 
     removeUpload();
   }
+}
+
+function showFailNotif(){
+  $('.notif-box-success').hide();
+  $('.notif-box-fail').text("An error occurred in image colorization. Try another image.");
+  $('.notif-box-fail').show();
+  $('.dl-btn').prop('disabled', true);
 }
 
 $('#upload-btn-hidden').click(function(e){
@@ -90,16 +117,19 @@ $('#upload-btn-hidden').click(function(e){
     $('.file-upload-image').attr('src', `/colorized/${data.colorized}.png`);
     $('.colorized-name').html(`${data.colorized}.png`);
     $('.colorized-name').show();
-    $('.notif-box-success').css('background', '#006C8A')
-    $('.notif-box-success').text("Image successfully colored!");
-    $('.notif-box-success').show().delay(5000).fadeOut(); //show for 5 secs
+    
+    // if image result is not broken
+    if($('.notif-box-fail').is(":hidden")){
+      $('.notif-box-success').css('background', '#006C8A')
+      $('.notif-box-success').text("Image successfully colored!");
+      $('.notif-box-success').show().delay(5000).fadeOut(); //show for 5 secs
+    }
     
     $('.no-image-box').hide();
   })
   .fail(function(){
-      $('.notif-box-success').hide();
-      $('.notif-box-fail').text("An error occurred in image colorization. Try another image.");
-      $('.notif-box-fail').show();
+    showFailNotif();
+    $('.clear-btn').prop('disabled', false);
   });
 });
 
@@ -223,16 +253,18 @@ function processURL(img_url, filename){
         $('.file-upload-image').attr('src', `/colorized/${data.colorized}.png`);
         $('.colorized-name').html(`${data.colorized}.png`);
         $('.colorized-name').show();
-        $('.notif-box-success').css('background', '#006C8A')
-        $('.notif-box-success').text("Image successfully colored!");
-        $('.notif-box-success').show().delay(5000).fadeOut(); //show for 5 secs
+
+        // if image result is not broken
+        if($('.notif-box-fail').is(":hidden")){
+          $('.notif-box-success').css('background', '#006C8A')
+          $('.notif-box-success').text("Image successfully colored!");
+          $('.notif-box-success').show().delay(5000).fadeOut(); //show for 5 secs
+        }
       
         $('.no-image-box').hide();
       })
       .fail(function(){
-        $('.notif-box-success').hide();
-        $('.notif-box-fail').text("An error occurred in image colorization. Try another image.");
-        $('.notif-box-fail').show();
+        showFailNotif();
         $('.clear-btn').prop('disabled', false);
       });
 
