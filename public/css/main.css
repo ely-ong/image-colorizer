@@ -126,3 +126,18 @@ li > a.nav-link:not(.active) {
     } 
 
 }
+
+@media (max-width: 496px) {
+    li.logo{
+        font-size:1.5rem;
+    }
+
+    li > a.nav-link{
+        font-size:0.6rem;
+    }
+
+    li > a.nav-link.active{
+        font-size:0.8rem;
+    } 
+
+}

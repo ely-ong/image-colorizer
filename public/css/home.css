@@ -146,6 +146,7 @@ div.welcome{
     outline: none;
     opacity: 0;
     cursor: pointer;
+    display: none;
   }
   
   .image-upload-wrap {
@@ -255,3 +256,21 @@ div.welcome{
   a.click-image:hover{
     opacity: 0.6
   }
+
+.disclaimer-box{
+  height:auto;
+  width:100%;
+  border-radius: 15px;
+  padding: 3%;
+  background-color: #FFFFFF;
+  margin: 10px;
+  margin-top:0.5rem;
+  
+  margin-bottom:0.5rem;
+
+  font-family: 'Montserrat';
+  /* font-weight: 700; */
+  font-size: 0.8em;
+
+  color: #004E64;
+}
