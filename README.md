@@ -4,7 +4,9 @@
 ![HTML5](https://img.shields.io/badge/HTML-%23E34F26.svg?style=flat&logo=html5&logoColor=white)
 ![badge-CSS3](https://img.shields.io/badge/CSS-%231572B6.svg?style=flat&logo=css3&logoColor=white)
 
-Final Project for DIGIMAP involving image colorization
+A web application that colorizes grayscale images from the user.
+
+This is the final project output for an image processing class in De La Salle University. 
 
 ## Installation
 1. Install the dependencies:
@@ -23,3 +25,9 @@ Final Project for DIGIMAP involving image colorization
    ```
    node app.js
    ```
+
+## Project Team
+- Ainsley Go
+- Frances Majorie Lopez
+- Sophia See
+- Elyssia Barrie Ong
