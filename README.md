@@ -30,6 +30,7 @@ A web application that colorizes grayscale images from the user.
    ```
    node app.js
    ```
+1. Open the application using the local address http://localhost:3000 on a browser.
 
 ## Sample Images
 Original | Colorized
