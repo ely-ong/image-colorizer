@@ -6,11 +6,14 @@
 
 A web application that colorizes grayscale images from the user.
 
-This is the final project output for an image processing class in De La Salle University. 
-
 ## Installation
-1. Install the dependencies:
+1. Clone this repository:
    ```
+   git clone https://github.com/ely-ong/image-colorizer.git
+   ```
+2. Install the dependencies:
+   ```
+   cd image-colorizer
    npm install
    ```
 3. Install the Python libraries:
@@ -31,3 +34,5 @@ This is the final project output for an image processing class in De La Salle Un
 - Frances Majorie Lopez
 - Sophia See
 - Elyssia Barrie Ong
+##
+This is the final project output for an image processing class in De La Salle University. 
