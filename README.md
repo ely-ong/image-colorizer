@@ -32,7 +32,7 @@ A web application that colorizes grayscale images from the user.
 ## Project Team
 - Ainsley Go
 - Frances Majorie Lopez
-- Sophia See
 - Elyssia Barrie Ong
+- Sophia See
 ##
 This is the final project output for an image processing class in De La Salle University. 
