@@ -6,6 +6,8 @@
 
 A web application that colorizes grayscale images from the user.
 
+<img src="https://github.com/ely-ong/image-colorizer/blob/main/public/imgs/main_colorizer.png" width="100%" height="100%">
+
 ## Installation
 1. Clone this repository:
    ```
@@ -29,6 +31,14 @@ A web application that colorizes grayscale images from the user.
    node app.js
    ```
 
+## Sample Images
+Original | Colorized
+:---: | :---:
+<img src="https://github.com/ely-ong/image-colorizer/blob/main/public/imgs/sample_imgs/bridge.jpg" width="100%" height="100%"> | <img src="https://github.com/ely-ong/image-colorizer/blob/main/public/imgs/sample_colorized/colorized_bridge.png" width="100%" height="100%">
+<img src="https://github.com/ely-ong/image-colorizer/blob/main/public/imgs/sample_imgs/eiffel.jpg" width="50%" height="50%"> | <img src="https://github.com/ely-ong/image-colorizer/blob/main/public/imgs/sample_colorized/colorized_eiffel.png" width="50%" height="50%">
+<img src="https://github.com/ely-ong/image-colorizer/blob/main/public/imgs/sample_imgs/henry.jpg" width="50%" height="50%"> | <img src="https://github.com/ely-ong/image-colorizer/blob/main/public/imgs/sample_colorized/colorized_henry.png" width="50%" height="50%">
+<img src="https://github.com/ely-ong/image-colorizer/blob/main/public/imgs/sample_imgs/puppy.jpg" width="60%" height="60%"> | <img src="https://github.com/ely-ong/image-colorizer/blob/main/public/imgs/sample_colorized/colorized_puppy.png" width="60%" height="60%">
+
 ## Project Team
 - Ainsley Go
 - Frances Majorie Lopez
@@ -36,3 +46,6 @@ A web application that colorizes grayscale images from the user.
 - Sophia See
 ##
 This is the final project output for an image processing class in De La Salle University. 
+
+The colorizer model used in this application is built by Richard Zhang, Phillip Isola, and Alexei A. Efros. Read more [here](https://github.com/ely-ong/image-colorizer/blob/main/colorization_master/README.md).
+
